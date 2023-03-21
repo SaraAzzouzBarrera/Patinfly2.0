@@ -1,5 +1,6 @@
 package cat.urv.deim.asm.patinfly.views.spinner
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,8 +10,11 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignUpBinding
+import cat.urv.deim.asm.patinfly.views.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.signup.SignupInteraction
 import cat.urv.deim.asm.patinfly.views.signup.SignupPresenter
+import cat.urv.deim.asm.patinfly.views.splash.SplashActivity
 import java.util.*
 
 class SpinnerActivity: AppCompatActivity(), AdapterView.OnItemSelectedListener{
@@ -32,6 +36,5 @@ class SpinnerActivity: AppCompatActivity(), AdapterView.OnItemSelectedListener{
         mBinding.tvSelected.text= position.toString()
     }
     override fun onNothingSelected(p0: AdapterView<*>?) {
-
     }
 }

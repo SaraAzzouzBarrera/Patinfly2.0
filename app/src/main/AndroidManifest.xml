@@ -11,31 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Patinfly"
         tools:targetApi="31">
+
         <activity
-            android:name=".SpinnerActivity"
-            android:exported="false" />
+            android:name=".views.profile.ProfileActivity"
+            android:exported="true" />
+
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
+            android:name=".views.login.LoginActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".views.signup.SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.spinner.SpinnerActivity"
+            android:exported="true" />
+
         <activity
             android:name=".views.splash.SplashActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".views.profile.ProfileActivity"
-            android:exported="true" />
-        <activity
-            android:name=".views.login.LoginActivity"
-            android:exported="true" />
     </application>
-
 </manifest>
