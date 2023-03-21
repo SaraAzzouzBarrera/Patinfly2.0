@@ -1,31 +1,29 @@
 package cat.urv.deim.asm.patinfly.views.signup
+import android.content.Context
+import android.widget.Button
+import android.widget.EditText
+import android.view.View
+import android.widget.ProgressBar
 
-class SignupPresenter(var signupView: SignupActivity, val signupInteraction: SignupInteraction) :
+class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupInteraction) :
     SignupInteraction.OnSignUpFinishedListener {
 
-    fun validateCredentials(username: String, surname: String, email: String, phone: String, IdPas: String, kmTraveled: String) {
-        SignupView?.showProgress()
-        signupInteraction.signup(username, surname, email, phone, IdPas, kmTraveled, this)
+    fun validateCredentials(name: String, surname: String, email: String, phone: String, IdPas: String, nac: String, kmTraveled: String) {
+        signupView?.showProgress()
+        signupInteraction.signup(name, surname, email, phone, IdPas, nac, kmTraveled, this)
     }
-
-    fun onDestroy() {
-        signupView = null
-    }
-
-    override fun onUsernameError() {
+    override fun onNameError() {
         signupView?.apply {
             setNameError()
             hideProgress()
         }
     }
-
     override fun onSurnameError() {
         signupView?.apply {
             setSurnamesError()
             hideProgress()
         }
     }
-
     override fun onEmailError() {
         signupView?.apply {
             setEmailError()
@@ -38,21 +36,24 @@ class SignupPresenter(var signupView: SignupActivity, val signupInteraction: Sig
             hideProgress()
         }
     }
-
     override fun onIdPassportError() {
         signupView?.apply {
             setIdPassportError()
             hideProgress()
         }
     }
-
+    override fun onNacError() {
+        signupView?.apply {
+            setNacError()
+            hideProgress()
+        }
+    }
     override fun onKmTraveledError() {
         signupView?.apply {
             setKmTraveledError()
             hideProgress()
         }
     }
-
     override fun onSuccess() {
         signupView?.navigateToProfile()
     }

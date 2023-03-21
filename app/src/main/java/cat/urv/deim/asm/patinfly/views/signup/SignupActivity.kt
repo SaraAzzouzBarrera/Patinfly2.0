@@ -3,6 +3,8 @@ package cat.urv.deim.asm.patinfly.views.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -11,7 +13,7 @@ import android.widget.ProgressBar
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 
-class SignupActivity : AppCompatActivity() {
+class SignupActivity: AppCompatActivity(), SignupView {
     private val presenter = SignupPresenter(this, SignupInteraction())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,7 @@ class SignupActivity : AppCompatActivity() {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
+        val nac: EditText= this.findViewById(R.id.Nacionality)
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
 
         val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)
@@ -28,11 +31,12 @@ class SignupActivity : AppCompatActivity() {
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
-            val phoneValue = email.text.toString()
-            val idPassValue = email.text.toString()
-            val kmTravelValue = email.text.toString()
-            val message = String.format("name: %s surnames: %s email: %s phone: %s idCardOrPassport: %s kmTraveled: %s", nameValue, surnamesValue,
-                emailValue, phoneValue, idPassValue, kmTravelValue)
+            val phoneValue = phone.text.toString()
+            val idPassportValue = idPassport.inputType
+            val nacValue= nac.text.toString()
+            val kmTraveledValue = kmTraveled.inputType
+            val message = String.format("name: %s surnames: %s email: %s phone: %s id or Passport: %s, nacionalitat: %s, kmTraveled: %s", nameValue, surnamesValue,
+                emailValue, phoneValue, idPassportValue, nacValue, kmTraveledValue)
             this.showProgress()
             this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
@@ -46,9 +50,10 @@ class SignupActivity : AppCompatActivity() {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
+        val nac: EditText= this.findViewById(R.id.Nacionality)
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
-        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.text.toString(),
-            idPassport.text.toString(), kmTraveled.text.toString())
+        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.inputType.toString(),
+            idPassport.inputType.toString(), nac.text.toString(), kmTraveled.inputType.toString())
     }
     override fun onStart() {
         super.onStart()
@@ -86,8 +91,12 @@ class SignupActivity : AppCompatActivity() {
         this.findViewById<EditText>(R.id.IDcardOrPassport).setText("Error al DNI o Passaport")
     }
 
+    override fun setNacError(){
+        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("Error al introduir la nacionalitat")
+    }
+
     override fun setKmTraveledError(){
-        this.findViewById<EditText>(R.id.kmTraveled).setText("Error al introduir els km")
+        this.findViewById<EditText>(R.id.kmTraveled).setText("Error al introduir els km recorreguts")
     }
 
     override fun navigateToProfile() {
@@ -96,4 +105,5 @@ class SignupActivity : AppCompatActivity() {
         intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
+
 }
