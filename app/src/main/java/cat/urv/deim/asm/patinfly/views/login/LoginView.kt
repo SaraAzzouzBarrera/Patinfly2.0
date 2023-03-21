@@ -8,5 +8,6 @@ interface LoginView {
     fun setUsernameError()
     fun setPasswordError()
     fun navigateToProfile()
+    fun navigateToSignup()
 
 }

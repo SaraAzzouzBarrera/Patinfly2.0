@@ -14,4 +14,6 @@ class ViewPagerAdapter(private var title: List<String>, private var details: Lis
                 val itemTitle: TextView = itemView.findViewById(R.id.tvTitle)
         }
 
-        }
+
+
+}

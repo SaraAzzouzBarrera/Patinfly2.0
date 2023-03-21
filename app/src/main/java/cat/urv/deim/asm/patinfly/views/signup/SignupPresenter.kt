@@ -12,6 +12,7 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
         signupView?.showProgress()
         signupInteraction.signup(name, surname, email, phone, IdPas, nac, kmTraveled, this)
     }
+
     override fun onNameError() {
         signupView?.apply {
             setNameError()

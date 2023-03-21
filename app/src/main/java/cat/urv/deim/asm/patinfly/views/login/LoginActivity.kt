@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 password.text.toString())
             this.showProgress()
             this.navigateToProfile()
+            this.navigateToSignup()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
         }
@@ -72,5 +74,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
         intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
-
+    override fun navigateToSignup() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, SignupActivity::class.java)
+        this.startActivity(intent)
+    }
 }
