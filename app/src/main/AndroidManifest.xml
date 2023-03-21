@@ -12,11 +12,8 @@
         android:theme="@style/Theme.Patinfly"
         tools:targetApi="31">
         <activity
-            android:name=".views.login.LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".views.signup.SignupActivity"
-            android:exported="true" />
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".views.splash.SplashActivity"
             android:exported="true"
@@ -24,7 +21,6 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,5 +30,9 @@
         <activity
             android:name=".views.profile.ProfileActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.login.LoginActivity"
+            android:exported="true" />
     </application>
+
 </manifest>
