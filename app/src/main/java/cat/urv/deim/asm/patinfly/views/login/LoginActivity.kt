@@ -20,7 +20,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
         val password: EditText =this.findViewById(R.id.loginPasswordEditText)
 
-
         val signInButton:Button = this.findViewById<Button>(R.id.loginSignIn)
         signInButton.setOnClickListener {
 
@@ -30,9 +29,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 password.text.toString())
             this.showProgress()
             this.navigateToProfile()
-            this.navigateToSignup()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
+        }
+        val signUpButton:Button = this.findViewById<Button>(R.id.loginSignUp)
+        signUpButton.setOnClickListener {
+            this.navigateToSignup()
         }
     }
 

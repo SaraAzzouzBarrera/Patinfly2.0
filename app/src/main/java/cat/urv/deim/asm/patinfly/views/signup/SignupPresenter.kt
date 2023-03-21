@@ -4,6 +4,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Spinner
 
 class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupInteraction) :
     SignupInteraction.OnSignUpFinishedListener {
@@ -56,6 +57,6 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
         }
     }
     override fun onSuccess() {
-        signupView?.navigateToProfile()
+        signupView?.navigateToLogin()
     }
 }
