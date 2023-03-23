@@ -6,10 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -19,27 +18,31 @@
             android:layout_centerVertical="true"
             android:text="Title Text"
             android:textColor="@color/green"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="386dp" />
 
         <TextView
             android:id="@+id/tvAbout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             android:text="About Topic"
             android:textColor="@color/purple_200"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="438dp" />
 
         <ImageView
             android:id="@+id/ivImage"
-            android:layout_width="317dp"
-            android:layout_height="305dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
-            android:src="@drawable/CapturaSigninup" />
-    </LinearLayout>
+            android:src="@drawable/captura2"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="134dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
