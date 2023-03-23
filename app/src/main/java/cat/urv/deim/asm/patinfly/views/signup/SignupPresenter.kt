@@ -57,6 +57,6 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
         }
     }
     override fun onSuccess() {
-        signupView?.navigateToLogin()
+        signupView?.navigateToProfile()
     }
 }

@@ -10,5 +10,5 @@ interface SignupView {
         fun setIdPassportError()
         fun setNacError()
         fun setKmTraveledError()
-        fun navigateToLogin()
+        fun navigateToProfile()
 }

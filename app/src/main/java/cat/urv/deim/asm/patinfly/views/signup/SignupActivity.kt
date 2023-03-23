@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import java.util.*
 
 class SignupActivity: AppCompatActivity(), SignupView {
@@ -43,7 +44,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val message = String.format("name: %s surnames: %s email: %s phone: %s id or Passport: %s, nacionalitat: %s, kmTraveled: %s", nameValue, surnamesValue,
                 emailValue, phoneValue, idPassportValue, nacValue, kmTraveledValue)
             this.showProgress()
-            this.navigateToLogin()
+            this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
         }
@@ -103,10 +104,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         this.findViewById<EditText>(R.id.kmTraveled).setText("Error al introduir els km")
     }
 
-    override fun navigateToLogin() {
+    override fun navigateToProfile() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
-        intent.setClass(this, LoginActivity::class.java)
+        intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
 
