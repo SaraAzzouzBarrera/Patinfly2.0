@@ -6,43 +6,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Title Text"
+        android:textColor="@color/green"
+        android:textSize="32sp"/>
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="152dp"
-            android:layout_height="47dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Sing up"
-            android:textColor="@color/purple_700"
-            android:textSize="32sp"
-            tools:layout_editor_absoluteX="149dp"
-            tools:layout_editor_absoluteY="478dp" />
-
-        <TextView
-            android:id="@+id/tvAbout"
-            android:layout_width="355dp"
-            android:layout_height="129dp"
-            android:layout_centerHorizontal="true"
-            android:text="Register in the patinfly application by entering your name, surname, email, telephone number, ID or passport, nationality and kilometers traveled. Then click on sign up and you will be registered."
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="538dp" />
-
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="311dp"
-            android:layout_height="374dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?selectableItemBackground"
-            android:src="@drawable/captura2"
-            tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="88dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="About Topic"
+        android:textColor="@color/purple_200"
+        android:textSize="24sp"/>
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/captura1"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"/>
 
 </RelativeLayout>
