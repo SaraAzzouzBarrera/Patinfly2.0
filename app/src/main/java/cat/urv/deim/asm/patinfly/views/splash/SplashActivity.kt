@@ -7,6 +7,10 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
+import cat.urv.deim.asm.patinfly.views.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.login.LoginView
+import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
+import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -16,13 +20,18 @@ class SplashActivity : AppCompatActivity() {
 
 
         window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
+            WindowManager.LayoutParams.FLAGS_CHANGED,
+            WindowManager.LayoutParams.FLAGS_CHANGED
         )
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
             startActivity(intent)
             finish()
+        }, 2000)
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, TutorialActivity::class.java)
+            startActivity(intent)
+
         }, 2000)
     }
 }

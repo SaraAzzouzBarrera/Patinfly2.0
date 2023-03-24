@@ -29,8 +29,8 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val getName = sharePreference.getString("NAME","")
         val getUsername = sharePreference.getString("SURNAME","")
         if(getName != "" && getUsername != ""){
-            val i = Intent(this,ProfileActivity::class.java)
-            startActivity(i)
+            navigateToProfile()
+
         }
 
         val name: EditText = this.findViewById(R.id.Name)
@@ -81,6 +81,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.inputType.toString(),
             idPassport.inputType.toString(), nac.text.toString(), kmTraveled.inputType.toString())
+
     }
     override fun onStart() {
         super.onStart()
