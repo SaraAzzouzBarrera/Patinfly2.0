@@ -1,8 +1,11 @@
 package cat.urv.deim.asm.patinfly.views.signup
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -14,6 +17,7 @@ import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import java.util.*
+
 
 class SignupActivity: AppCompatActivity(), SignupView {
     private val presenter = SignupPresenter(this, SignupInteraction())
@@ -47,6 +51,15 @@ class SignupActivity: AppCompatActivity(), SignupView {
             this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
+
+            val sharedPreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
+            val editor = sharedPreference.edit()
+            editor.putString("NAME", nameValue)
+            editor.putString("SURNAME", surnamesValue)
+            editor.apply()
+
+            val i = Intent(this,ProfileActivity::class.java)
+            startActivity(i)
         }
 
     }
