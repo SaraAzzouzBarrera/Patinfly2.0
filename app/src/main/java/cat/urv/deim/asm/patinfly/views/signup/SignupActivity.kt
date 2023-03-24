@@ -24,6 +24,15 @@ class SignupActivity: AppCompatActivity(), SignupView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
+        val getName = sharePreference.getString("NAME","")
+        val getUsername = sharePreference.getString("SURNAME","")
+        if(getName != "" && getUsername != ""){
+            val i = Intent(this,ProfileActivity::class.java)
+            startActivity(i)
+        }
+
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText =this.findViewById(R.id.Surnames)
         val email: EditText = this.findViewById(R.id.Email)
@@ -52,8 +61,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
             Log.d("MainActivity-Debug", message )
             validateCredentials()
 
-            val sharedPreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-            val editor = sharedPreference.edit()
+            val editor = sharePreference.edit()
             editor.putString("NAME", nameValue)
             editor.putString("SURNAME", surnamesValue)
             editor.apply()
