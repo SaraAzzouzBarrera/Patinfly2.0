@@ -30,7 +30,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:src="@drawable/signin" />
+                android:src="@drawable/sign_in" />
 
             <TextView
                 android:id="@+id/tvTitle"
