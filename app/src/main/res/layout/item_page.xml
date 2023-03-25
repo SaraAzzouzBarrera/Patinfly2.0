@@ -25,17 +25,17 @@
 
             <ImageView
                 android:id="@+id/ivImage"
-                android:layout_width="341dp"
-                android:layout_height="353dp"
+                android:layout_width="309dp"
+                android:layout_height="385dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:src="@drawable/sign_in" />
+                android:src="@drawable/signin" />
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
+                android:layout_height="50dp"
                 android:text="Title Text"
                 android:textColor="@color/purple_700"
                 android:textSize="32sp" />
@@ -45,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="97dp"
                 android:text="About Topic"
-                android:textColor="@color/purple_200"
-                android:textSize="24sp" />
+                android:textColor="@color/gray"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
