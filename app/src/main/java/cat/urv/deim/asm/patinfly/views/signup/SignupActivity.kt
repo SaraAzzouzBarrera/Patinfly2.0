@@ -125,7 +125,6 @@ class SignupActivity: AppCompatActivity(), SignupView {
     override fun setKmTraveledError(){
         this.findViewById<EditText>(R.id.kmTraveled).setText("Error al introduir els km")
     }
-
     override fun navigateToProfile() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")

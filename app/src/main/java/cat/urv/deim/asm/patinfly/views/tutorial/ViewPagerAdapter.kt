@@ -1,13 +1,17 @@
 package cat.urv.deim.asm.patinfly.views.tutorial
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 
 class ViewPagerAdapter (private var title: List<String>, private var details: List<String>, private var images: List<Int>) : RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder> (){
 
@@ -39,4 +43,5 @@ class ViewPagerAdapter (private var title: List<String>, private var details: Li
     override fun getItemCount(): Int {
        return title.size
     }
+
 }
