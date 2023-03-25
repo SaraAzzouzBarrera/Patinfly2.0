@@ -48,12 +48,6 @@
                 android:textColor="@color/purple_200"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/Skip"
-                android:layout_width="167dp"
-                android:layout_height="38dp"
-                android:text="Skip Tutorial" />
-
         </LinearLayout>
 
 

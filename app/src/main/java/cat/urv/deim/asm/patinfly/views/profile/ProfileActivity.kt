@@ -11,11 +11,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.signup.SignupView
-import cat.urv.deim.asm.patinfly.views.signup.SignupInteraction
-import cat.urv.deim.asm.patinfly.views.signup.SignupPresenter
-import java.util.*
-import java.util.jar.Attributes.Name
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
