@@ -47,10 +47,10 @@ class TutorialActivity : AppCompatActivity() {
     private fun postToList() {
         for (i in 1..3) {
             if (i == 1) {
-                addToList("Step 1 $i", "Description $i", R.mipmap.tutorial_image1)
+                addToList("Step $i", "Description $i", R.mipmap.tutorial_image1)
             }
             if (i == 2) {
-                addToList("Step 2 $i", "Description $i", R.mipmap.tutorial_image2)
+                addToList("Step $i", "Description $i", R.mipmap.tutorial_image2)
             }
             if (i == 3) {
                 addToList("Thank you!", "Press the button next", R.mipmap.ic_launcher_round)
