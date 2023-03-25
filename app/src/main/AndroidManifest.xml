@@ -12,10 +12,7 @@
         android:theme="@style/Theme.Patinfly"
         tools:targetApi="31">
         <activity
-            android:name=".UserRepository"
-            android:exported="false" />
-        <activity
-            android:name=".views.login.LoginActivity"
+            android:name=".views.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +22,9 @@
         </activity>
         <activity
             android:name=".views.tutorial.TutorialActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".views.signup.SignupActivity"
