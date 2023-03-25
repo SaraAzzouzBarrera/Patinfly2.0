@@ -28,11 +28,9 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         val getName = sharePreference.getString("NAME","")
         val getUsername = sharePreference.getString("SURNAME","")
-        if(getName != "" && getUsername != ""){
+        if(getName != "" && getUsername != "") {
             navigateToProfile()
-
         }
-
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText =this.findViewById(R.id.Surnames)
         val email: EditText = this.findViewById(R.id.Email)
@@ -47,6 +45,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         val acceptButton: Button = this.findViewById<Button>(R.id.accept)
         acceptButton.setOnClickListener {
+
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
@@ -61,13 +60,13 @@ class SignupActivity: AppCompatActivity(), SignupView {
             Log.d("MainActivity-Debug", message )
             validateCredentials()
 
-            val editor = sharePreference.edit()
-            editor.putString("NAME", nameValue)
-            editor.putString("SURNAME", surnamesValue)
-            editor.apply()
+                val editor = sharePreference.edit()
+                editor.putString("NAME", nameValue)
+                editor.putString("SURNAME", surnamesValue)
+                editor.apply()
 
-            val i = Intent(this,ProfileActivity::class.java)
-            startActivity(i)
+                val i = Intent(this,ProfileActivity::class.java)
+                startActivity(i)
         }
 
     }

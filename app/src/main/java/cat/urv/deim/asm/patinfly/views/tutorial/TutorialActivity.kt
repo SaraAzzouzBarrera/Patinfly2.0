@@ -47,16 +47,16 @@ class TutorialActivity : AppCompatActivity() {
     private fun postToList() {
         for (i in 1..4) {
             if (i == 1) {
-                addToList("Step $i", "First you must enter your email and password and press Sign in", R.mipmap.tutorial_image1)
+                addToList("Step $i", "First you must enter your email and password and press Sign in", R.drawable.signup)
             }
             if (i == 2) {
-                addToList("Step $i", "If you don't have count press Sign up", R.mipmap.tutorial_image2)
+                addToList("Step $i", "If you don't have count press Sign up", R.drawable.signup_button)
             }
             if (i == 3) {
-                addToList("Step $i", "You must complete the information requested to register and press Sign up", R.mipmap.tutorial_image3)
+                addToList("Step $i", "You must complete the information requested to register and press Sign up", R.drawable.signup)
             }
             if (i == 4) {
-                addToList("Thank you!", "Press the button next", R.mipmap.ic_launcher_round)
+                addToList("Thank you!", "Press the button skip", R.drawable.logo)
             }
         }
     }
