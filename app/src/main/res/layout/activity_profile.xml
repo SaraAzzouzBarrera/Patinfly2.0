@@ -26,10 +26,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:src="@drawable/android" />
+                android:src="@drawable/android"/>
 
             <TextView
-                android:id="tvName"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -370,8 +370,9 @@
 
 
     <Button
-        android:layout_width="220dp"
-        android:layout_height="45dp"
+        android:id="@+id/FollowMe"
+        android:layout_width="222dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
         android:background="@drawable/buttonstylewithgradient"

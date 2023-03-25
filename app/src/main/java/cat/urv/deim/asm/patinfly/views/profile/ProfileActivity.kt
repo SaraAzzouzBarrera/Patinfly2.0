@@ -18,13 +18,11 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val name= findViewById<TextView>(R.id.tvName)
-        val surname= findViewById<TextView>(R.id.tvSurname)
 
         val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         val userName = sharePreference.getString("NAME", "").toString()
-        val userSurname = sharePreference.getString("SURNAME", "").toString()
         name.text = "Name: $userName"
-        surname.text= "Surname: $userSurname"
+
     }
 }
 
