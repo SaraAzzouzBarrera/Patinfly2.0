@@ -37,21 +37,13 @@ class SignupActivity: AppCompatActivity(), SignupView {
             "German", "French", "Mexican", "Spanish"))
         nac.adapter= countries
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
-        val acceptButton: Button = this.findViewById<Button>(R.id.accept)
+        val signupButton: Button = this.findViewById(R.id.accept)
 
-        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        val getName = sharePreference.getString("NAME","")
-        val getUsername = sharePreference.getString("SURNAME","")
-        if(getName != "" && getUsername != "") {
-            val i= Intent(this, ProfileActivity::class.java)
-            startActivity(i)
-        }
-
-        acceptButton.setOnClickListener {
+        signupButton.setOnClickListener {
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
-            val phoneValue = phone.text.toString()
+            val phoneValue = phone.inputType
             val idPassportValue = idPassport.inputType
             val nacValue= ACCESSIBILITY_SERVICE
             val kmTraveledValue = kmTraveled.inputType
@@ -61,14 +53,6 @@ class SignupActivity: AppCompatActivity(), SignupView {
             this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
-
-            val editor= sharePreference.edit()
-            editor.putString("NAME", nameValue)
-            editor.putString("SURNAME", surnamesValue)
-            editor.apply()
-
-            val i= Intent(this, ProfileActivity::class.java)
-            startActivity(i)
         }
 
     }
