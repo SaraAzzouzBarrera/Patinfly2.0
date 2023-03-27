@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.autofill.SaveInfo
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,17 @@ class ProfileActivity : AppCompatActivity() {
         val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         val userName = sharePreference.getString("NAME", "").toString()
         name.text = "Name: $userName"
+        val logoutButton:Button = this.findViewById<Button>(R.id.LogOut)
+        logoutButton.setOnClickListener {
+            navigateToLogIn()
+        }
 
+    }
+    private fun navigateToLogIn() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, LoginActivity::class.java)
+        this.startActivity(intent)
     }
 }
 
