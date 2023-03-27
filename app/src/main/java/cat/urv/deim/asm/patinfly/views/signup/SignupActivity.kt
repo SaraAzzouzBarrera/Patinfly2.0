@@ -18,11 +18,19 @@ import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadEmail
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadIdPassport
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadKmTraveled
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadName
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadPhone
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadSurname
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.saveUser
 import java.util.*
 
 
 class SignupActivity: AppCompatActivity(), SignupView {
     private val presenter = SignupPresenter(this, SignupInteraction())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -49,13 +57,19 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val idPassportValue = idPassport.inputType
             val nacValue= ACCESSIBILITY_SERVICE
             val kmTraveledValue = kmTraveled.inputType
-            val message = String.format("name: %s surnames: %s email: %s phone: %s id or Passport: %s, nacionalitat: %s, kmTraveled: %s", nameValue, surnamesValue,
-                emailValue, phoneValue, idPassportValue, nacValue, kmTraveledValue)
+
+            val user= User(nameValue, surnamesValue, emailValue, phoneValue,
+                idPassportValue, nacValue, kmTraveledValue)
+            saveUser(user)
+            loadName(nameValue)
+            loadSurname(surnamesValue)
+            loadEmail(emailValue)
+            loadPhone(phoneValue.toString())
+            loadIdPassport(idPassportValue.toString())
+            loadKmTraveled(kmTraveledValue.toString())
             this.showProgress()
             this.navigateToProfile()
-            Log.d("MainActivity-Debug", message )
             validateCredentials()
-
         }
 
     }

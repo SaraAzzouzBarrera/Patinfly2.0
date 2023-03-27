@@ -101,6 +101,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <TextView
+                    android:id="@+id/surname"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Share"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="25dp">
 
@@ -132,7 +153,6 @@
 
                 <TextView
                     android:id="@+id/phone"
-
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -154,8 +174,7 @@
                     android:src="@drawable/dni" />
 
                 <TextView
-                    android:id="@+id/addGroup"
-
+                    android:id="@+id/idPassport"
                     android:layout_width="267dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -177,7 +196,7 @@
                     android:src="@drawable/nationality" />
 
                 <TextView
-                    android:id="@+id/comment"
+                    android:id="@+id/nationality"
 
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
@@ -215,7 +234,7 @@
                 android:paddingLeft="25dp">
 
                 <TextView
-                    android:id="@+id/caca"
+                    android:id="@+id/km"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
