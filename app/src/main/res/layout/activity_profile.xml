@@ -87,15 +87,15 @@
 
     <!-- Here starts scrolling - view all content -->
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="318dp"
+        android:layout_width="369dp"
+        android:layout_height="347dp"
         android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -211,6 +211,29 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_share_black_24dp" />
+
+                <TextView
+                    android:id="@+id/caca"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Share"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <!-- Line to separate items -->
             <View
                 android:layout_width="fill_parent"
@@ -218,53 +241,6 @@
                 android:layout_marginTop="10dp"
                 android:background="#2E8B57"
                 android:focusable="false" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_important_devices_black_24dp" />
-
-                <TextView
-                    android:id="@+id/about"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="About"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_supervisor_account_black_24dp" />
-
-                <TextView
-                    android:id="@+id/support"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="Support"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 
