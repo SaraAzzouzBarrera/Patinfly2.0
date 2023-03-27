@@ -22,41 +22,47 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.408">
 
             <ImageView
                 android:id="@+id/ivImage"
-                android:layout_width="309dp"
-                android:layout_height="385dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
                 android:src="@drawable/signin" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="318dp"
+                android:layout_height="195dp"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="323dp"
-            android:layout_height="173dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="534dp">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Title Text"
-                android:textColor="@color/purple_700"
-                android:textSize="32sp" />
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title Text"
+                    android:textColor="@color/purple_700"
+                    android:textSize="32sp" />
 
-            <TextView
-                android:id="@+id/tvAbout"
-                android:layout_width="match_parent"
-                android:layout_height="117dp"
-                android:text="About Topic"
-                android:textColor="@color/gray"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tvAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="127dp"
+                    android:text="About Topic"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
 
