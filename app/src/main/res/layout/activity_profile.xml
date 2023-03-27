@@ -54,7 +54,7 @@
                 android:weightSum="3">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="219dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -62,17 +62,18 @@
 
                     <TextView
                         android:id="@+id/Kmtraveled"
-                        android:layout_width="133dp"
-                        android:layout_height="38dp"
-                        android:text="Km traveled"
-                        android:textSize="20sp" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="                             Km traveled"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/nFollowers"
-                        android:layout_width="wrap_content"
+                        android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="1205"
+                        android:text="                           1205"
                         android:textColor="@color/purple_700"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -195,29 +196,6 @@
                 android:paddingLeft="25dp">
 
                 <ImageView
-                    android:id="@+id/help"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_live_help_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="Help"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_share_black_24dp" />
@@ -230,29 +208,6 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Share"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_video_call_black_24dp" />
-
-                <TextView
-                    android:id="@+id/video"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="Vídeos"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -309,28 +264,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_settings_black_24dp" />
-
-                <TextView
-                    android:id="@+id/settings"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="Settings"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
