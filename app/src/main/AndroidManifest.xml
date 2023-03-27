@@ -29,6 +29,9 @@
         <activity
             android:name=".views.signup.SignupActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.profile.ProfileActivity"
+            android:exported="true" />
 
     </application>
 
