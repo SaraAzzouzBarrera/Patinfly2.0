@@ -7,7 +7,6 @@ package cat.urv.deim.asm.patinfly.views.user
         companion object {
             private val TAG: String = "User"
 
-            @Volatile
             private var INSTANCE: User? = null
 
             @Synchronized
@@ -28,6 +27,7 @@ package cat.urv.deim.asm.patinfly.views.user
                 }finally {
                     Log.d(TAG, "User created?")
                 }
+
             }
 
         }
