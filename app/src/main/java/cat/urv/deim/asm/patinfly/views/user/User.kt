@@ -4,6 +4,7 @@ package cat.urv.deim.asm.patinfly.views.user
     import java.lang.Exception
 
     class User private constructor(val name:String, val username:String, val email: String, val phone: Int, val idpassport: Int, val nationality: String, val kmtraveled: Int): UserBase() {
+        private var user: MutableMap<String, User> = mutableMapOf()
         companion object {
             private val TAG: String = "User"
 
@@ -27,8 +28,7 @@ package cat.urv.deim.asm.patinfly.views.user
                 }finally {
                     Log.d(TAG, "User created?")
                 }
-
             }
-
         }
     }
+

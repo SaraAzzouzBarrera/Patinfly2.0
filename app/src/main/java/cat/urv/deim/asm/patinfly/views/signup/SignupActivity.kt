@@ -16,6 +16,8 @@ import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.user.User
+import cat.urv.deim.asm.patinfly.views.user.UserRepository
 import java.util.*
 
 
@@ -53,6 +55,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
             this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
+
         }
 
     }

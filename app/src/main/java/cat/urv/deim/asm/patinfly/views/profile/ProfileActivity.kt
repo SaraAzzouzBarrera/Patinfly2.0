@@ -19,11 +19,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val name= findViewById<TextView>(R.id.tvName)
 
-        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        val userName = sharePreference.getString("NAME", "").toString()
-        name.text = "Name: $userName"
         val logoutButton:Button = this.findViewById<Button>(R.id.LogOut)
         logoutButton.setOnClickListener {
             navigateToLogIn()

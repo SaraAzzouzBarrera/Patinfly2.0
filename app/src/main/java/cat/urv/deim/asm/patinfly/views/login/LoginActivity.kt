@@ -37,7 +37,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
             this.navigateToSignup()
         }
     }
-
     private fun validateCredentials() {
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
         val password: EditText =this.findViewById(R.id.loginPasswordEditText)
