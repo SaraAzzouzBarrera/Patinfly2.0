@@ -6,31 +6,28 @@
     android:layout_height="match_parent"
     android:background="@color/graylight"
     android:orientation="vertical">
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="261dp">
+        android:layout_height="270dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:layout_alignBottom="@+id/null"
-            android:layout_marginBottom="0dp"
             android:background="@drawable/gradientbackground"
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:clickable="true"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#ADFF2F"
                 android:id="@+id/profile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:contentDescription="User image"
+                android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:src="@drawable/usuario"
-                app:civ_border_color="#ADFF2F"
-                app:civ_border_width="1dp" />
+                android:contentDescription="User image"
+                android:src="@drawable/usuario"/>
 
             <TextView
                 android:id="@+id/tvName"
@@ -46,34 +43,42 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="397dp"
-            android:layout_height="wrap_content"
+            android:layout_height="74dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="190dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="75dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                <TextView
-                    android:id="@+id/Kmtraveled"
-                    android:layout_width="135dp"
-                    android:layout_height="wrap_content"
-                    android:text="Km traveled"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/nFollowers"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:text="1205"
-                    android:textColor="@color/purple_700"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/Kmtraveled"
+                        android:layout_width="133dp"
+                        android:layout_height="38dp"
+                        android:text="Km traveled"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/nFollowers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="1205"
+                        android:textColor="@color/purple_700"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -105,10 +110,11 @@
 
                 <TextView
                     android:id="@+id/email"
-                    android:layout_width="275dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
+                    android:text="ProjectSource@gmail.com"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -127,10 +133,34 @@
                 <TextView
                     android:id="@+id/phone"
 
-                    android:layout_width="271dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
+                    android:text="+55 99987 2680"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_group_add_black_24dp" />
+
+                <TextView
+                    android:id="@+id/addGroup"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Add to group"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -147,12 +177,13 @@
                     android:src="@drawable/ic_forum_black_24dp" />
 
                 <TextView
-                    android:id="@+id/IDorPassport"
+                    android:id="@+id/comment"
 
-                    android:layout_width="268dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
+                    android:text="Show all comments"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -170,12 +201,12 @@
                     android:src="@drawable/ic_live_help_black_24dp" />
 
                 <TextView
-                    android:id="@+id/Nationality"
+                    android:layout_width="wrap_content"
 
-                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
+                    android:text="Help"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -202,6 +233,29 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_video_call_black_24dp" />
+
+                <TextView
+                    android:id="@+id/video"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Vídeos"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <!-- Line to separate items -->
             <View
                 android:layout_width="fill_parent"
@@ -209,6 +263,51 @@
                 android:layout_marginTop="10dp"
                 android:background="#2E8B57"
                 android:focusable="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_important_devices_black_24dp" />
+
+                <TextView
+                    android:id="@+id/about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="About"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_supervisor_account_black_24dp" />
+
+                <TextView
+                    android:id="@+id/support"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Support"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
