@@ -32,6 +32,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
+                android:contentDescription="Image"
                 android:src="@drawable/signin" />
 
             <LinearLayout
