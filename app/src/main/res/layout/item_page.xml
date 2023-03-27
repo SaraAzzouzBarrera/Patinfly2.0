@@ -11,6 +11,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -32,9 +33,18 @@
                 android:foreground="?selectableItemBackground"
                 android:src="@drawable/signin" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="323dp"
+            android:layout_height="173dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="49dp"
+            tools:layout_editor_absoluteY="534dp">
+
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="Title Text"
                 android:textColor="@color/purple_700"
@@ -43,11 +53,10 @@
             <TextView
                 android:id="@+id/tvAbout"
                 android:layout_width="match_parent"
-                android:layout_height="97dp"
+                android:layout_height="117dp"
                 android:text="About Topic"
                 android:textColor="@color/gray"
                 android:textSize="18sp" />
-
         </LinearLayout>
 
 

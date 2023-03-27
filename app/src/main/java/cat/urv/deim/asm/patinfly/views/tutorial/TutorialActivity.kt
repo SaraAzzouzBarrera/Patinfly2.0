@@ -50,7 +50,7 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     private fun postToList() {
-        for (i in 1..4) {
+        for (i in 1..3) {
             if (i == 1) {
                 addToList("Step $i", "First you must enter your email and password and press Sign in", R.drawable.signin)
             }
@@ -61,7 +61,6 @@ class TutorialActivity : AppCompatActivity() {
                     R.drawable.singup
                 )
             }
-
             if (i == 3) {
                 addToList("Thank you!", "Press the button skip", R.drawable.logo)
             }

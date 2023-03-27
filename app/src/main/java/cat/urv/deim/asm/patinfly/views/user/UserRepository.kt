@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 
 class UserRepository : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +36,13 @@ class UserRepository : AppCompatActivity() {
         val getKMTraveled = sharePreference.getString("KMTRAVELED","")
 
 
-        if(getName != " " && getUsername != " " && getEmail != " " && getPhone != " "
-            && getIDPassport != " " && getNacionality != " " && getKMTraveled != " ") {
+        if(getName != null && getUsername != null && getEmail != null && getPhone != null
+            && getIDPassport != null && getNacionality != null && getKMTraveled != null) {
             val i= Intent(this, ProfileActivity::class.java)
+            startActivity(i)
+        }
+        else{
+            val i= Intent(this, SignupActivity::class.java)
             startActivity(i)
         }
 
