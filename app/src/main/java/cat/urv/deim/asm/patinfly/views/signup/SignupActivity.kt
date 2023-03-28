@@ -1,12 +1,8 @@
 package cat.urv.deim.asm.patinfly.views.signup
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -14,10 +10,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
-import cat.urv.deim.asm.patinfly.views.user.UserRepository
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadEmail
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadIdPassport
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadKmTraveled
@@ -57,16 +51,16 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val idPassportValue = idPassport.inputType
             val nacValue= ACCESSIBILITY_SERVICE
             val kmTraveledValue = kmTraveled.inputType
-
-            val user= User(nameValue, surnamesValue, emailValue, phoneValue,
+            val user:User?= User.getUser(nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue)
-            saveUser(user)
-            loadName(nameValue)
-            loadSurname(surnamesValue)
-            loadEmail(emailValue)
-            loadPhone(phoneValue.toString())
-            loadIdPassport(idPassportValue.toString())
-            loadKmTraveled(kmTraveledValue.toString())
+            if (user != null) {
+                saveUser(user)
+                loadName(nameValue)
+                loadSurname(surnamesValue)
+                loadEmail(emailValue)
+                loadPhone(phoneValue.toString())
+                loadIdPassport(idPassportValue.toString())
+                loadKmTraveled(kmTraveledValue.toString())}
             this.showProgress()
             this.navigateToProfile()
             validateCredentials()
@@ -79,10 +73,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
-        val nac: EditText= this.findViewById(R.id.spinner)
+        val nat=findViewById<EditText?>(R.id.spinner).toString()
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.inputType.toString(),
-            idPassport.inputType.toString(), nac.text.toString(), kmTraveled.inputType.toString())
+            idPassport.inputType.toString(), nat, kmTraveled.inputType.toString())
 
     }
     override fun onStart() {

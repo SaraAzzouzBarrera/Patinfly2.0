@@ -4,15 +4,17 @@ import android.content.Context
 
 class UserRepository {
         companion object {
-                private var user: MutableMap<String, User> = mutableMapOf()
+                var user: MutableMap<String, User> = mutableMapOf()
+
                 fun saveUser(userRegistry: User) {
                         user[userRegistry.name] = userRegistry
                         user[userRegistry.username] = userRegistry
                         user[userRegistry.email] = userRegistry
                         user[userRegistry.phone.toString()] = userRegistry
-                        user[userRegistry.idpassport.toString()] = userRegistry
+                        user[userRegistry.idPassport.toString()] = userRegistry
                         user[userRegistry.nationality] = userRegistry
-                        user[userRegistry.kmtraveled.toString()] = userRegistry
+                        user[userRegistry.kmTraveled.toString()] = userRegistry
+                        user.toString()
                 }
 
                 fun loadName(username: String): User? {
@@ -31,8 +33,8 @@ class UserRepository {
                         return user[phone]
                 }
 
-                fun loadIdPassport(idpassport: String): User? {
-                        return user[idpassport]
+                fun loadIdPassport(idPassport: String): User? {
+                        return user[idPassport]
                 }
 
                 fun loadNationality(nat: String): User? {
@@ -43,4 +45,6 @@ class UserRepository {
                         return user[kmT]
                 }
         }
+
+
 }

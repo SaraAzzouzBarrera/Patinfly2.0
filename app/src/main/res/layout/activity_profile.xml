@@ -69,11 +69,11 @@
                         android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/nFollowers"
+                        android:id="@+id/nkmTraveled"
                         android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="                               "
+                        android:text=""
                         android:textColor="@color/purple_700"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -107,7 +107,6 @@
 
                 <TextView
                     android:id="@+id/surname"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

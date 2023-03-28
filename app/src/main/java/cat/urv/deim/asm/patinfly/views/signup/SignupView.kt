@@ -11,5 +11,4 @@ interface SignupView {
         fun setNacError()
         fun setKmTraveledError()
         fun navigateToProfile()
-
 }
