@@ -4,16 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.core.view.get
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
-import java.util.*
-import java.util.jar.Attributes.Name
 
 
 class SignupActivity: AppCompatActivity(), SignupView {
@@ -37,10 +33,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val adapt: ArrayAdapter<String> =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nationality)
 
-        lateinit var position: String
+        lateinit var nation: String
         nac?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                var pos = nationality[position]
+                nation = nationality[position]
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -62,7 +58,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val emailValue = email.text.toString()
             val phoneValue = phone.text.toString()
             val idPassportValue = idPassport.text.toString()
-            val nacValue = nac.textAlignment.toString()
+            val nacValue = nation
             val kmTraveledValue = kmTraveled.text.toString()
 
             var user = User(

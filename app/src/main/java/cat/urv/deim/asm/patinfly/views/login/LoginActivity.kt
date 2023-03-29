@@ -29,15 +29,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
             val message = String.format("email: %s password: %s",
                 emailValue,passwordValue)
 
+            navigateToProfile()
 
             this.showProgress()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
-
-
-
-
-
         }
         val signUpButton:Button = this.findViewById<Button>(R.id.loginSignUp)
         signUpButton.setOnClickListener {
@@ -71,13 +67,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun setUsernameError() {
         this.findViewById<EditText>(R.id.loginEmailEditText).setText("")
-        this.findViewById<TextView>(R.id.textView2).setText("Enter a correct email")
 
     }
 
     override fun setPasswordError() {
         this.findViewById<EditText>(R.id.loginPasswordEditText).setText("")
-        this.findViewById<TextView>(R.id.textView2).setText("Enter a correct password")
+
     }
 
 
