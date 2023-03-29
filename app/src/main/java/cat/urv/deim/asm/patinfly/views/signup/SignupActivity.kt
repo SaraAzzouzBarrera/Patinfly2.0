@@ -12,12 +12,7 @@ import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadEmail
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadIdPassport
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadKmTraveled
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadName
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadPhone
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadSurname
+import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadUser
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.saveUser
 import java.util.*
 
@@ -53,14 +48,12 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val kmTraveledValue = kmTraveled.inputType
             val user:User?= User.getUser(nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue)
+
             if (user != null) {
-                saveUser(user)
-                loadName(nameValue)
-                loadSurname(surnamesValue)
-                loadEmail(emailValue)
-                loadPhone(phoneValue.toString())
-                loadIdPassport(idPassportValue.toString())
-                loadKmTraveled(kmTraveledValue.toString())}
+                loadUser(user)
+            }
+
+
             this.showProgress()
             this.navigateToProfile()
             validateCredentials()
