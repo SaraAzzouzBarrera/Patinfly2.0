@@ -14,6 +14,7 @@ import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 import java.util.*
+import java.util.jar.Attributes.Name
 
 
 class SignupActivity: AppCompatActivity(), SignupView {
@@ -21,6 +22,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
 
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText =this.findViewById(R.id.Surnames)
