@@ -69,6 +69,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         this.findViewById<EditText>(R.id.loginPasswordEditText).setText("Error al password")
     }
 
+
     override fun navigateToProfile() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")

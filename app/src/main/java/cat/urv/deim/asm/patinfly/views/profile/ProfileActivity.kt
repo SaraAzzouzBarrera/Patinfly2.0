@@ -26,7 +26,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val name=findViewById<TextView>(R.id.tvName).toString()
-        val surname=findViewById<TextView>(R.id.surname).toString()
+        val surname=findViewById<TextView>(R.id.tvSurname).toString()
         val email=findViewById<TextView>(R.id.email).toString()
         val phone=findViewById<TextView>(R.id.phone).inputType
         val idPassport=findViewById<TextView>(R.id.idPassport).inputType
