@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
@@ -24,13 +25,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
         signInButton.setOnClickListener {
 
             val emailValue = email.text.toString()
+            val passwordValue = password.text.toString()
             val message = String.format("email: %s password: %s",
-                emailValue,
-                password.text.toString())
+                emailValue,passwordValue)
+
             this.showProgress()
-            this.navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
+
+
+
         }
         val signUpButton:Button = this.findViewById<Button>(R.id.loginSignUp)
         signUpButton.setOnClickListener {
@@ -62,11 +66,14 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun setUsernameError() {
-        this.findViewById<EditText>(R.id.loginEmailEditText).setText("Error al usuari")
+        this.findViewById<EditText>(R.id.loginEmailEditText).setText("")
+        this.findViewById<TextView>(R.id.textView2).setText("Enter a correct email")
+
     }
 
     override fun setPasswordError() {
-        this.findViewById<EditText>(R.id.loginPasswordEditText).setText("Error al password")
+        this.findViewById<EditText>(R.id.loginPasswordEditText).setText("")
+        this.findViewById<TextView>(R.id.textView2).setText("Enter a correct password")
     }
 
 
@@ -80,6 +87,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
         intent.setClass(this, SignupActivity::class.java)
+        this.startActivity(intent)
+    }
+    private fun navigateToLogIn() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, LoginActivity::class.java)
         this.startActivity(intent)
     }
 }
