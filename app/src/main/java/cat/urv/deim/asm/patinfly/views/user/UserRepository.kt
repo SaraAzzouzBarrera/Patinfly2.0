@@ -4,12 +4,12 @@ import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 
 class UserRepository {
         companion object {
-                private var userPr: User? = null
+                private var userProfile: User? = null
                 fun saveUser(user: User) {
-                        userPr = user
+                        userProfile = user
                 }
                 fun loadUser(): User? {
-                        return userPr
+                        return userProfile
                 }
         }
 }

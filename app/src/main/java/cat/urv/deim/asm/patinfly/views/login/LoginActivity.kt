@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 emailValue,passwordValue)
 
             this.showProgress()
+            navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
 

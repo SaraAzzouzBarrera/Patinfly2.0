@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Spinner
+import androidx.core.view.get
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
@@ -31,11 +33,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
         val nac: Spinner= this.findViewById(R.id.spinner)
-        val countries= ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        countries.addAll(
-            Arrays.asList("American", "Belgium", "Canadian",
-            "German", "French", "Mexican", "Spanish"))
-        nac.adapter= countries
+        val nationality= arrayOf("American", "Belgium", "Canadian",
+            "German", "French", "Mexican", "Spanish")
+        val adapt= ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nationality)
+        nac.adapter= adapt
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         val signupButton: Button = this.findViewById(R.id.accept)
 
@@ -45,19 +46,14 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val emailValue = email.text.toString()
             val phoneValue = phone.text.toString()
             val idPassportValue = idPassport.text.toString()
-            val nacValue= ACCESSIBILITY_SERVICE
+            val nacValue= nac.textAlignment.toString()
             val kmTraveledValue = kmTraveled.text.toString()
 
            var user= User(nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue)
-            if (user != null) {
-                UserRepository.saveUser(user)
-            }
-            val message = String.format("name: %s password: %s email: %s phone: %s " +
-                    "idPassport: %s nac: %s kmTraveled: %s", nameValue, surnamesValue, emailValue,
-                    phoneValue, idPassportValue, nacValue, kmTraveledValue)
-            this.showProgress()
-            Log.d("MainActivity-Debug", message)
+
+            UserRepository.saveUser(user)
+
             this.navigateToProfile()
             validateCredentials()
 
@@ -69,10 +65,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
-        val nat=findViewById<EditText?>(R.id.spinner).toString()
+        val nat: Spinner=findViewById(R.id.spinner)
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
-        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.inputType.toString(),
-            idPassport.inputType.toString(), nat, kmTraveled.inputType.toString())
+        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.text.toString(),
+            idPassport.text.toString(), nat.textAlignment.toString(), kmTraveled.text.toString())
 
     }
     override fun onStart() {

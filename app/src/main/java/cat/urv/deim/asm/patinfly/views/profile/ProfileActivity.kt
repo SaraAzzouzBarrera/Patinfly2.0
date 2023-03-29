@@ -17,9 +17,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-
         var userSignup: User?= UserRepository.loadUser()
-
 
         if (userSignup != null) {
             findViewById<TextView>(R.id.tvName).text = userSignup.name
@@ -29,19 +27,14 @@ class ProfileActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.idPassport).text = userSignup.idPassport
             findViewById<TextView>(R.id.nationality).text = userSignup.nationality
             findViewById<TextView>(R.id.kmTraveled).text = userSignup.kmTraveled
+        }else{
+            navigateToSignup()
         }
-
         val logoutButton:Button = this.findViewById(R.id.LogOut)
         logoutButton.setOnClickListener {
             navigateToLogIn()
         }
 
-    }
-    private fun navigateToLogIn() {
-        val intent: Intent = Intent()
-        intent.putExtra("key", "value")
-        intent.setClass(this, LoginActivity::class.java)
-        this.startActivity(intent)
     }
     private fun navigateToSignup() {
         val intent: Intent = Intent()
@@ -49,5 +42,12 @@ class ProfileActivity : AppCompatActivity() {
         intent.setClass(this, SignupActivity::class.java)
         this.startActivity(intent)
     }
+    private fun navigateToLogIn() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, LoginActivity::class.java)
+        this.startActivity(intent)
+    }
+
 }
 
