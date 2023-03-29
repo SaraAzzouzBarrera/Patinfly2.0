@@ -99,15 +99,15 @@
 
     <!-- Here starts scrolling - view all content -->
     <ScrollView
-        android:layout_width="362dp"
-        android:layout_height="326dp"
+        android:layout_width="399dp"
+        android:layout_height="393dp"
         android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -204,10 +204,10 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-
             <!-- Line to separate items -->
         </LinearLayout>
     </ScrollView>
+
 
     <Button
         android:id="@+id/LogOut"

@@ -29,10 +29,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
             val message = String.format("email: %s password: %s",
                 emailValue,passwordValue)
 
+
             this.showProgress()
-            navigateToProfile()
             Log.d("MainActivity-Debug", message )
             validateCredentials()
+
+
 
 
 
@@ -47,6 +49,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         val password: EditText =this.findViewById(R.id.loginPasswordEditText)
         presenter.validateCredentials(email.text.toString(), password.text.toString())
     }
+
 
     override fun onStart() {
         super.onStart()

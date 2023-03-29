@@ -1,16 +1,12 @@
 package cat.urv.deim.asm.patinfly.views.signup
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Spinner
+import android.widget.*
 import androidx.core.view.get
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
@@ -28,34 +24,56 @@ class SignupActivity: AppCompatActivity(), SignupView {
 
 
         val name: EditText = this.findViewById(R.id.Name)
-        val surnames: EditText =this.findViewById(R.id.Surnames)
+        val surnames: EditText = this.findViewById(R.id.Surnames)
         val email: EditText = this.findViewById(R.id.Email)
-        val phone: EditText =this.findViewById(R.id.Phone)
+        val phone: EditText = this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
-        val nac: Spinner= this.findViewById(R.id.spinner)
-        val nationality= arrayOf("American", "Belgium", "Canadian",
-            "German", "French", "Mexican", "Spanish")
-        val adapt= ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nationality)
-        nac.adapter= adapt
-        val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
-        val signupButton: Button = this.findViewById(R.id.accept)
+        val nac: Spinner = this.findViewById(R.id.spinner)
+        val kmTraveled: EditText = this.findViewById(R.id.kmTraveled)
+        val nationality = arrayOf(
+            "American", "Belgium", "Canadian",
+            "German", "French", "Mexican", "Spanish"
+        )
+        val adapt: ArrayAdapter<String> =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nationality)
 
+        lateinit var position: String
+        nac?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                var pos = nationality[position]
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                showToast(message = "There is no nationality selected")
+            }
+        }
+        with(nac)
+        {
+            adapter = adapt
+            setSelection(0, false)
+            prompt = "Select your nationality"
+            gravity = android.view.Gravity.END
+        }
+
+        val signupButton: Button = this.findViewById<Button>(R.id.accept)
         signupButton.setOnClickListener {
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
             val phoneValue = phone.text.toString()
             val idPassportValue = idPassport.text.toString()
-            val nacValue= nac.textAlignment.toString()
+            val nacValue = nac.textAlignment.toString()
             val kmTraveledValue = kmTraveled.text.toString()
 
-           var user= User(nameValue, surnamesValue, emailValue, phoneValue,
-                idPassportValue, nacValue, kmTraveledValue)
+            var user = User(
+                nameValue, surnamesValue, emailValue, phoneValue,
+                idPassportValue, nacValue, kmTraveledValue
+            )
 
             UserRepository.saveUser(user)
-
             this.navigateToProfile()
             validateCredentials()
+
 
         }
     }
@@ -81,6 +99,14 @@ class SignupActivity: AppCompatActivity(), SignupView {
 
     override fun showProgress() {
         this.findViewById<ProgressBar>(R.id.signupProgressBar).visibility = View.VISIBLE
+    }
+
+    fun showToast(message: String){
+        var a=1
+    }
+
+    private fun showToast(context: Context, message: String, duration: Int){
+        Toast.makeText(context, message, duration).show()
     }
 
     override fun hideProgress() {
@@ -120,3 +146,5 @@ class SignupActivity: AppCompatActivity(), SignupView {
         this.startActivity(intent)
     }
 }
+
+
