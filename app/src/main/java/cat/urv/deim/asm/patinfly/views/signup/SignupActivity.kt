@@ -24,7 +24,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText = this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
-        val nac: Spinner = this.findViewById(R.id.spinner)
+        val nac: Spinner = this.findViewById(R.id.Spinner)
         val kmTraveled: EditText = this.findViewById(R.id.kmTraveled)
         val nationality = arrayOf(
             "American", "Belgium", "Canadian",
@@ -65,12 +65,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
                 nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue
             )
-
             UserRepository.saveUser(user)
             this.navigateToProfile()
+            showProgress()
             validateCredentials()
-
-
         }
     }
     private fun validateCredentials() {
@@ -79,7 +77,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val email: EditText = this.findViewById(R.id.Email)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
-        val nat: Spinner=findViewById(R.id.spinner)
+        val nat: Spinner=findViewById(R.id.Spinner)
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.text.toString(),
             idPassport.text.toString(), nat.textAlignment.toString(), kmTraveled.text.toString())
@@ -98,42 +96,35 @@ class SignupActivity: AppCompatActivity(), SignupView {
     }
 
     fun showToast(message: String){
-        var a=1
+        var a =1
     }
-
-    private fun showToast(context: Context, message: String, duration: Int){
-        Toast.makeText(context, message, duration).show()
-    }
-
     override fun hideProgress() {
         this.findViewById<ProgressBar>(R.id.signupProgressBar).visibility = View.INVISIBLE
     }
 
     override fun setNameError() {
-        this.findViewById<EditText>(R.id.Name).setText("Error al nom")
+        this.findViewById<EditText>(R.id.Name).setText("")
     }
 
     override fun setSurnamesError() {
-        this.findViewById<EditText>(R.id.Surnames).setText("Error al cognom")
+        this.findViewById<EditText>(R.id.Surnames).setText("")
     }
 
     override fun setEmailError(){
-        this.findViewById<EditText>(R.id.Email).setText("Error al email")
+        this.findViewById<EditText>(R.id.Email).setText("")
     }
     override fun setPhoneError(){
-        this.findViewById<EditText>(R.id.Phone).setText("Error al numero de telefon")
+        this.findViewById<EditText>(R.id.Phone).setText("")
     }
 
     override fun setIdPassportError(){
-        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("Error al DNI o Passaport")
+        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("")
     }
-
-    override fun setNacError(){
-        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("Error al introduir la nacionalitat")
+    override fun setNatError(){
+        this.findViewById<EditText>(R.id.Spinner).setText("")
     }
-
     override fun setKmTraveledError(){
-        this.findViewById<EditText>(R.id.kmTraveled).setText("Error al introduir els km")
+        this.findViewById<EditText>(R.id.kmTraveled).setText("")
     }
     override fun navigateToProfile() {
         val intent: Intent = Intent()
@@ -141,6 +132,10 @@ class SignupActivity: AppCompatActivity(), SignupView {
         intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
+    override fun navigateToSignup() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, SignupActivity::class.java)
+        this.startActivity(intent)
+    }
 }
-
-

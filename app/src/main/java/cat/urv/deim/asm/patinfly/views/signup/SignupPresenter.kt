@@ -1,5 +1,7 @@
 package cat.urv.deim.asm.patinfly.views.signup
 
+import android.content.Intent
+
 class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupInteraction) :
     SignupInteraction.OnSignUpFinishedListener {
 
@@ -38,9 +40,9 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
             hideProgress()
         }
     }
-    override fun onNacError() {
+    override fun onNatError() {
         signupView?.apply {
-            setNacError()
+            setNatError()
             hideProgress()
         }
     }
@@ -53,4 +55,5 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
     override fun onSuccess() {
         signupView?.navigateToProfile()
     }
+
 }

@@ -19,33 +19,35 @@ class LoginActivity : AppCompatActivity(), LoginView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
-        val password: EditText =this.findViewById(R.id.loginPasswordEditText)
+        val password: EditText = this.findViewById(R.id.loginPasswordEditText)
 
-        val signInButton:Button = this.findViewById<Button>(R.id.loginSignIn)
+        val signInButton: Button = this.findViewById<Button>(R.id.loginSignIn)
         signInButton.setOnClickListener {
 
             val emailValue = email.text.toString()
             val passwordValue = password.text.toString()
-            val message = String.format("email: %s password: %s",
-                emailValue,passwordValue)
-
-            navigateToProfile()
-
+            val message = String.format(
+                "email: %s password: %s",
+                emailValue, passwordValue
+            )
             this.showProgress()
-            Log.d("MainActivity-Debug", message )
+            navigateToProfile()
+            Log.d("MainActivity-Debug", message)
             validateCredentials()
+
+
         }
-        val signUpButton:Button = this.findViewById<Button>(R.id.loginSignUp)
+        val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)
         signUpButton.setOnClickListener {
             this.navigateToSignup()
         }
     }
+
     private fun validateCredentials() {
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
-        val password: EditText =this.findViewById(R.id.loginPasswordEditText)
+        val password: EditText = this.findViewById(R.id.loginPasswordEditText)
         presenter.validateCredentials(email.text.toString(), password.text.toString())
     }
-
 
     override fun onStart() {
         super.onStart()
@@ -70,30 +72,23 @@ class LoginActivity : AppCompatActivity(), LoginView {
         this.findViewById<TextView>(R.id.textView2).setText("Enter a correct email")
 
     }
-
     override fun setPasswordError() {
         this.findViewById<EditText>(R.id.loginPasswordEditText).setText("")
         this.findViewById<TextView>(R.id.textView2).setText("Enter a correct password")
 
     }
-
-
     override fun navigateToProfile() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
         intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
+
     override fun navigateToSignup() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
         intent.setClass(this, SignupActivity::class.java)
         this.startActivity(intent)
     }
-    private fun navigateToLogIn() {
-        val intent: Intent = Intent()
-        intent.putExtra("key", "value")
-        intent.setClass(this, LoginActivity::class.java)
-        this.startActivity(intent)
-    }
 }
+

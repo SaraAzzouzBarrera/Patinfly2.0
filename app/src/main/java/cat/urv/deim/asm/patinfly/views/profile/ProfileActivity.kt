@@ -12,7 +12,6 @@ import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 
 class ProfileActivity : AppCompatActivity() {
-    private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -22,30 +21,31 @@ class ProfileActivity : AppCompatActivity() {
         if (userSignup != null) {
             findViewById<TextView>(R.id.tvName).text = userSignup.name
             findViewById<TextView>(R.id.tvSurname).text = userSignup.surname
-            findViewById<TextView>(R.id.email).text = userSignup.email
-            findViewById<TextView>(R.id.phone).text = userSignup.phone
-            findViewById<TextView>(R.id.idPassport).text = userSignup.idPassport
-            findViewById<TextView>(R.id.nationality).text = userSignup.nationality
-            findViewById<TextView>(R.id.kmTraveled).text = userSignup.kmTraveled
+            findViewById<TextView>(R.id.tvEmail).text = userSignup.email
+            findViewById<TextView>(R.id.tvPhone).text = userSignup.phone
+            findViewById<TextView>(R.id.tvIdPassport).text = userSignup.idPassport
+            findViewById<TextView>(R.id.tvNationality).text = userSignup.nationality
+            findViewById<TextView>(R.id.nkmTraveled).text = userSignup.kmTraveled
         }else{
             navigateToSignup()
+            this.findViewById<TextView>(R.id.incorrect).setText("Enter the data correctly")
         }
-        val logoutButton:Button = this.findViewById(R.id.LogOut)
-        logoutButton.setOnClickListener {
-            navigateToLogIn()
+        val logOutButton: Button= findViewById(R.id.LogOut)
+        logOutButton.setOnClickListener {
+            navigateToLogin()
         }
 
+    }
+    private fun navigateToLogin() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, LoginActivity::class.java)
+        this.startActivity(intent)
     }
     private fun navigateToSignup() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
         intent.setClass(this, SignupActivity::class.java)
-        this.startActivity(intent)
-    }
-    private fun navigateToLogIn() {
-        val intent: Intent = Intent()
-        intent.putExtra("key", "value")
-        intent.setClass(this, LoginActivity::class.java)
         this.startActivity(intent)
     }
 

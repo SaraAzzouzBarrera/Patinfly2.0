@@ -9,7 +9,7 @@ class SignupInteraction {
         fun onEmailError()
         fun onPhoneError()
         fun onIdPassportError()
-        fun onNacError()
+        fun onNatError()
         fun onKmTraveledError()
         fun onSuccess()
     }
@@ -23,7 +23,7 @@ class SignupInteraction {
                 email.isEmpty() -> listener.onEmailError()
                 phone.isEmpty()-> listener.onPhoneError()
                 IdPas.isEmpty()-> listener.onIdPassportError()
-                nac.isEmpty()-> listener.onNacError()
+                nac.isEmpty()-> listener.onNatError()
                 kmTraveled.isEmpty()-> listener.onKmTraveledError()
                 else -> listener.onSuccess()
             }

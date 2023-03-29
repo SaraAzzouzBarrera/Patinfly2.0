@@ -8,7 +8,8 @@ interface SignupView {
         fun setEmailError()
         fun setPhoneError()
         fun setIdPassportError()
-        fun setNacError()
+        fun setNatError()
         fun setKmTraveledError()
         fun navigateToProfile()
+        fun navigateToSignup()
 }

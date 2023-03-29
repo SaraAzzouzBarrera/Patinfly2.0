@@ -73,10 +73,10 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/Kmtraveled"
+                        android:id="@+id/tvKmTraveled"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="                             Km traveled"
+                        android:text="Km traveled"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                     android:src="@drawable/mail" />
 
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/tvEmail"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -150,7 +150,7 @@
                     android:src="@drawable/phone" />
 
                 <TextView
-                    android:id="@+id/phone"
+                    android:id="@+id/tvPhone"
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -172,7 +172,7 @@
                     android:src="@drawable/dni" />
 
                 <TextView
-                    android:id="@+id/idPassport"
+                    android:id="@+id/tvIdPassport"
                     android:layout_width="267dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -194,8 +194,7 @@
                     android:src="@drawable/nationality" />
 
                 <TextView
-                    android:id="@+id/nationality"
-
+                    android:id="@+id/tvNationality"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -216,7 +215,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
         android:background="@drawable/buttonstylewithgradient"
-        android:text="Log out"
+        android:text="Log Out"
         android:textColor="#fff" />
 
 
