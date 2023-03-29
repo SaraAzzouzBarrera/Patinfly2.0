@@ -12,6 +12,7 @@ import android.widget.Spinner
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
+import cat.urv.deim.asm.patinfly.views.user.UserRepository
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadUser
 import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.saveUser
 import java.util.*
@@ -19,7 +20,6 @@ import java.util.*
 
 class SignupActivity: AppCompatActivity(), SignupView {
     private val presenter = SignupPresenter(this, SignupInteraction())
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -46,19 +46,17 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val idPassportValue = idPassport.inputType
             val nacValue= ACCESSIBILITY_SERVICE
             val kmTraveledValue = kmTraveled.inputType
-            val user:User?= User.getUser(nameValue, surnamesValue, emailValue, phoneValue,
-                idPassportValue, nacValue, kmTraveledValue)
 
+           var user= User(nameValue, surnamesValue, emailValue, phoneValue,
+                idPassportValue, nacValue, kmTraveledValue)
             if (user != null) {
-                loadUser(user)
+                saveUser(user)
+                this.showProgress()
+                this.navigateToProfile()
+                validateCredentials()
             }
 
-
-            this.showProgress()
-            this.navigateToProfile()
-            validateCredentials()
         }
-
     }
     private fun validateCredentials() {
         val name: EditText = this.findViewById(R.id.Name)
@@ -120,5 +118,4 @@ class SignupActivity: AppCompatActivity(), SignupView {
         intent.setClass(this, ProfileActivity::class.java)
         this.startActivity(intent)
     }
-
 }

@@ -1,16 +1,15 @@
 package cat.urv.deim.asm.patinfly.views.user
 
-import android.content.Context
+import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 
 class UserRepository {
         companion object {
-                var userPr: User?= null
+                var userPr: User? = null
                 fun saveUser(user: User) {
-                        userPr= user
-
+                        userPr = user
                 }
-                fun loadUser(userPr2: User) {
-                        saveUser(userPr2)
+                fun loadUser(): User? {
+                        return userPr
                 }
         }
 }
