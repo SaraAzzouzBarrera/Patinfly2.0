@@ -10,7 +10,7 @@ import cat.urv.deim.asm.patinfly.views.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadUser
+
 class ProfileActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
 
-        var userSignup: User?= loadUser()
+        var userSignup: User?= UserRepository.loadUser()
 
 
         if (userSignup != null) {

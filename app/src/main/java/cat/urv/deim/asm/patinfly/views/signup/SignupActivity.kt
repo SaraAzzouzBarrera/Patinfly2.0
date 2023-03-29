@@ -13,8 +13,6 @@ import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.loadUser
-import cat.urv.deim.asm.patinfly.views.user.UserRepository.Companion.saveUser
 import java.util.*
 
 
@@ -50,11 +48,11 @@ class SignupActivity: AppCompatActivity(), SignupView {
            var user= User(nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue)
             if (user != null) {
-                saveUser(user)
-                this.showProgress()
-                this.navigateToProfile()
-                validateCredentials()
+                UserRepository.saveUser(user)
             }
+            this.showProgress()
+            this.navigateToProfile()
+            validateCredentials()
 
         }
     }
