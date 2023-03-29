@@ -25,10 +25,10 @@ class ProfileActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.tvName).text = userSignup.name
             findViewById<TextView>(R.id.tvSurname).text = userSignup.surname
             findViewById<TextView>(R.id.email).text = userSignup.email
-            findViewById<TextView>(R.id.phone).text = userSignup.phone.toString()
-            findViewById<TextView>(R.id.idPassport).text = userSignup.idPassport.toString()
+            findViewById<TextView>(R.id.phone).text = userSignup.phone
+            findViewById<TextView>(R.id.idPassport).text = userSignup.idPassport
             findViewById<TextView>(R.id.nationality).text = userSignup.nationality
-            findViewById<TextView>(R.id.km).text = userSignup.kmTraveled.toString()
+            findViewById<TextView>(R.id.km).text = userSignup.kmTraveled
         }
 
         val logoutButton:Button = this.findViewById(R.id.LogOut)

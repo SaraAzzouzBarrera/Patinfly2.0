@@ -3,6 +3,7 @@ package cat.urv.deim.asm.patinfly.views.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -40,17 +41,21 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
-            val phoneValue = phone.inputType
-            val idPassportValue = idPassport.inputType
+            val phoneValue = phone.text.toString()
+            val idPassportValue = idPassport.text.toString()
             val nacValue= ACCESSIBILITY_SERVICE
-            val kmTraveledValue = kmTraveled.inputType
+            val kmTraveledValue = kmTraveled.text.toString()
 
            var user= User(nameValue, surnamesValue, emailValue, phoneValue,
                 idPassportValue, nacValue, kmTraveledValue)
             if (user != null) {
                 UserRepository.saveUser(user)
             }
+            val message = String.format("name: %s password: %s email: %s phone: %s " +
+                    "idPassport: %s nac: %s kmTraveled: %s", nameValue, surnamesValue, emailValue,
+                    phoneValue, idPassportValue, nacValue, kmTraveledValue)
             this.showProgress()
+            Log.d("MainActivity-Debug", message)
             this.navigateToProfile()
             validateCredentials()
 

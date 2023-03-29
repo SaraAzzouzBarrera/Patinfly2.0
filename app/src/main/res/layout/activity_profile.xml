@@ -23,7 +23,7 @@
                 android:id="@+id/profile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
                 android:contentDescription="User image"
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:text="Source"
                 android:textColor="#fff"
                 android:textSize="21sp"
@@ -99,15 +99,15 @@
 
     <!-- Here starts scrolling - view all content -->
     <ScrollView
-        android:layout_width="369dp"
-        android:layout_height="347dp"
+        android:layout_width="362dp"
+        android:layout_height="326dp"
         android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal"
-                android:paddingLeft="25dp"/>
+                android:paddingLeft="25dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,43 +204,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-
-                <TextView
-                    android:id="@+id/share"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="hola    "
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <TextView
-                    android:id="@+id/km"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="Share"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
             <!-- Line to separate items -->
             <View
@@ -252,7 +215,6 @@
         </LinearLayout>
     </ScrollView>
 
-
     <Button
         android:id="@+id/LogOut"
         android:layout_width="222dp"
@@ -262,7 +224,6 @@
         android:background="@drawable/buttonstylewithgradient"
         android:text="Log out"
         android:textColor="#fff" />
-
 
 
 </LinearLayout>
