@@ -6,16 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".views.profile.EditProfileActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/graylight"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="270dp">
+            android:layout_height="322dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,34 +42,37 @@
 
                 <EditText
                     android:id="@+id/tvName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="171dp"
+                    android:layout_height="39dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="1dp"
                     android:gravity="center"
                     android:hint="Name"
                     android:inputType="textPersonName"
                     android:textColor="#fff"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tvSurname2"
-                    android:layout_width="407dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="3dp"
-                    android:hint="Surname"
-                    android:inputType="textPersonName"
-                    android:gravity="center"
-                    android:textColor="#fff"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <EditText
+                        android:id="@+id/tvSurname2"
+                        android:layout_width="169dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:hint="Surname"
+                        android:inputType="textPersonName"
+                        android:textColor="#fff"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -92,7 +99,7 @@
                         <TextView
                             android:id="@+id/tvKmTraveled"
                             android:layout_width="397dp"
-                            android:layout_height="55dp"
+                            android:layout_height="42dp"
                             android:gravity="center"
                             android:text="Km traveled"
                             android:textSize="20sp"
@@ -100,12 +107,12 @@
 
                         <EditText
                             android:id="@+id/nkmTraveled2"
-                            android:layout_width="397dp"
-                            android:layout_height="60dp"
+                            android:layout_width="443dp"
+                            android:layout_height="50dp"
                             android:gravity="center"
                             android:hint="0"
                             android:inputType="number"
-                            android:paddingTop="10dp"
+                            android:paddingTop="1dp"
                             android:textColor="@color/purple_700"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -117,9 +124,10 @@
         </RelativeLayout>
 
         <!-- Here starts scrolling - view all content -->
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="329dp"
+            android:layout_height="338dp"
             android:layout_gravity="center">
 
             <LinearLayout
@@ -154,6 +162,7 @@
                         android:layout_gravity="center_vertical"
                         android:paddingLeft="20dp"
                         android:text="Email "
+                        android:textSize="18dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -222,7 +231,8 @@
                         android:layout_gravity="center_vertical"
                         android:paddingLeft="20dp"
                         android:text="Nationality"
-                        android:textStyle="bold"  />
+                        android:textColor="@color/gray"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -232,7 +242,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:orientation="vertical">
 
             <Button

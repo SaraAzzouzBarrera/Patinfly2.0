@@ -4,12 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
-import  android.widget.EditText
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 import cat.urv.deim.asm.patinfly.views.user.User
-import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 
 class EditProfileActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class EditProfileActivity: AppCompatActivity() {
             findViewById<TextView>(R.id.tvEmail2).text = userEditProfile.email
             findViewById<TextView>(R.id.tvPhone2).text = userEditProfile.phone
             findViewById<TextView>(R.id.tvIdPassport2).text = userEditProfile.idPassport
-            findViewById<TextView>(R.id.tvNationality2).text = userEditProfile.nationality
+            findViewById<TextView>(R.id.tvNationality2).text= userEditProfile.nationality
             findViewById<TextView>(R.id.nkmTraveled2).text = userEditProfile.kmTraveled
             UserRepository.saveUser(userEditProfile)
         }
@@ -32,8 +31,16 @@ class EditProfileActivity: AppCompatActivity() {
         val saveChangesButton: Button = findViewById(R.id.saveChanges)
         saveChangesButton.setOnClickListener {
             if (userEditProfile != null) {
+                var name=this.findViewById<TextView>(R.id.tvName2).text.toString()
+                var username=this.findViewById<TextView>(R.id.tvSurname2).text.toString()
+                var email=this.findViewById<TextView>(R.id.tvEmail2).text.toString()
+                var phone=this.findViewById<TextView>(R.id.tvPhone2).text.toString()
+                var idPassport=this.findViewById<TextView>(R.id.tvIdPassport2).text.toString()
+                var nation=this.findViewById<TextView>(R.id.tvNationality2).text.toString()
+                var kmTraveled=this.findViewById<TextView>(R.id.nkmTraveled2).text.toString()
+                var user= User(name, username, email, phone, idPassport, nation, kmTraveled)
+                UserRepository.setUser(user)
                 navigateToProfile()
-                UserRepository.saveUser(userEditProfile)
             }
         }
     }

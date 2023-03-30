@@ -9,8 +9,8 @@
     tools:context=".views.signup.SignupActivity">
 
     <LinearLayout
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
+        android:layout_width="244dp"
+        android:layout_height="441dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,13 +20,14 @@
         <TextView
             android:id="@+id/incorrect"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/purple_700"
+            android:layout_height="34dp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
             android:visibility="visible" />
 
         <EditText
             android:id="@+id/Name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Name"
@@ -34,7 +35,7 @@
 
         <EditText
             android:id="@+id/Surnames"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Surname"
@@ -42,7 +43,7 @@
 
         <EditText
             android:id="@+id/Email"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Email"
@@ -51,7 +52,7 @@
 
         <EditText
             android:id="@+id/Phone"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Phone"
@@ -59,7 +60,7 @@
 
         <EditText
             android:id="@+id/IDcardOrPassport"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="ID or Passport"
@@ -73,7 +74,7 @@
 
         <EditText
             android:id="@+id/kmTraveled"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Km traveled"

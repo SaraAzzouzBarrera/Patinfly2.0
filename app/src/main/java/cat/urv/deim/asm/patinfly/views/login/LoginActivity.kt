@@ -11,6 +11,7 @@ import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
 import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
+import cat.urv.deim.asm.patinfly.views.user.UserRepository
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
@@ -18,24 +19,32 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val user = UserRepository.loadUser()
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
         val password: EditText = this.findViewById(R.id.loginPasswordEditText)
 
         val signInButton: Button = this.findViewById<Button>(R.id.loginSignIn)
         signInButton.setOnClickListener {
+                val emailValue = email.text.toString()
+                val passwordValue = password.text.toString()
+                val message = String.format(
+                    "email: %s password: %s",
+                    emailValue, passwordValue
+                )
+            if (user != null) {
+                if (emailValue.equals(user.email)) {
+                    navigateToProfile()
+                    this.showProgress()
 
-            val emailValue = email.text.toString()
-            val passwordValue = password.text.toString()
-            val message = String.format(
-                "email: %s password: %s",
-                emailValue, passwordValue
-            )
-            this.showProgress()
-            navigateToProfile()
-            Log.d("MainActivity-Debug", message)
-            validateCredentials()
-
-
+                    Log.d("MainActivity-Debug", message)
+                    validateCredentials()
+                } else if (emailValue != (user.email)) {
+                    this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
+                } else {
+                    setUsernameError()
+                    setPasswordError()
+                }
+            }
         }
         val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)
         signUpButton.setOnClickListener {
