@@ -12,5 +12,8 @@ class UserRepository {
                 fun loadUser(): User? {
                         return this.userProfile
                 }
+                fun setUser(user: User){
+                        userProfile= user
+                }
         }
 }

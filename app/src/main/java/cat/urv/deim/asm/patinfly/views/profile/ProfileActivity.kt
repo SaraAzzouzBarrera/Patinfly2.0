@@ -16,7 +16,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val userSignup: User?= UserRepository.loadUser()
+        var userSignup: User?= UserRepository.loadUser()
 
         if (userSignup != null) {
             findViewById<TextView>(R.id.tvName).text = userSignup.name
@@ -27,14 +27,15 @@ class ProfileActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.tvNationality).text = userSignup.nationality
             findViewById<TextView>(R.id.nkmTraveled).text = userSignup.kmTraveled
             UserRepository.saveUser(userSignup)
-        }else{
-            navigateToSignup()
-            this.findViewById<TextView>(R.id.incorrect).setText("Enter the data correctly")
         }
         val editProfileButton: Button= findViewById(R.id.EditProfile)
         editProfileButton.setOnClickListener {
-            navigateToEditProfile()
-        }
+            if (userSignup != null) {
+                UserRepository.saveUser(userSignup)
+                navigateToEditProfile()
+            }
+            }
+
         val logOutButton: Button= findViewById(R.id.LogOut)
         logOutButton.setOnClickListener {
             navigateToLogin()

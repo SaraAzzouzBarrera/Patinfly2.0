@@ -18,7 +18,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
         window.setFlags(
             WindowManager.LayoutParams.FLAGS_CHANGED,
             WindowManager.LayoutParams.FLAGS_CHANGED
