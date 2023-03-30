@@ -25,13 +25,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         val signInButton: Button = this.findViewById<Button>(R.id.loginSignIn)
         signInButton.setOnClickListener {
+            if (user != null) {
                 val emailValue = email.text.toString()
                 val passwordValue = password.text.toString()
                 val message = String.format(
                     "email: %s password: %s",
                     emailValue, passwordValue
                 )
-            if (user != null) {
                 if (emailValue.equals(user.email)) {
                     navigateToProfile()
                     this.showProgress()
@@ -40,10 +40,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     validateCredentials()
                 } else if (emailValue != (user.email)) {
                     this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
-                } else {
-                    setUsernameError()
-                    setPasswordError()
                 }
+            } else{
+                this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
+
             }
         }
         val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)
