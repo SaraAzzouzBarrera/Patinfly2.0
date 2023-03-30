@@ -19,7 +19,6 @@ class TutorialActivity : AppCompatActivity() {
     private var titlesList = mutableListOf<String>()
     private var descList = mutableListOf<String>()
     private var imagesList = mutableListOf<Int>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorial)
@@ -42,13 +41,11 @@ class TutorialActivity : AppCompatActivity() {
             this.navigateToLogin()
         }
     }
-
     private fun addToList(title: String, description: String, image: Int) {
         titlesList.add(title)
         descList.add(description)
         imagesList.add(image)
     }
-
     private fun postToList() {
         for (i in 1..3) {
             if (i == 1) {

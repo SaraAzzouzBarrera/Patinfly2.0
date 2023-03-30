@@ -16,7 +16,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        var userSignup: User?= UserRepository.loadUser()
+        val userSignup: User?= UserRepository.loadUser()
 
         if (userSignup != null) {
             findViewById<TextView>(R.id.tvName).text = userSignup.name
@@ -31,16 +31,14 @@ class ProfileActivity : AppCompatActivity() {
         val editProfileButton: Button= findViewById(R.id.EditProfile)
         editProfileButton.setOnClickListener {
             if (userSignup != null) {
-                UserRepository.saveUser(userSignup)
                 navigateToEditProfile()
             }
-            }
+        }
 
         val logOutButton: Button= findViewById(R.id.LogOut)
         logOutButton.setOnClickListener {
             navigateToLogin()
         }
-
     }
     private fun navigateToLogin() {
         val intent: Intent = Intent()
@@ -60,6 +58,5 @@ class ProfileActivity : AppCompatActivity() {
         intent.setClass(this, EditProfileActivity::class.java)
         this.startActivity(intent)
     }
-
 }
 

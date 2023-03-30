@@ -13,7 +13,6 @@ class SignupInteraction {
         fun onKmTraveledError()
         fun onSuccess()
     }
-
     fun signup(username: String, surname: String, email: String, phone: String, IdPas: String, nac: String, kmTraveled: String, listener: OnSignUpFinishedListener) {
         // the method works like the real method that asks to the server authenticator
         postDelayed(2000) {

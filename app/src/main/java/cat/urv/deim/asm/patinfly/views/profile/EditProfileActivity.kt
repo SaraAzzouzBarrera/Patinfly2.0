@@ -15,15 +15,15 @@ class EditProfileActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-        val userEditProfile: User?= UserRepository.loadUser()
+        val userEditProfile: User? = UserRepository.loadUser()
 
-        if(userEditProfile!=null) {
+        if (userEditProfile != null) {
             findViewById<TextView>(R.id.tvName2).text = userEditProfile.name
             findViewById<TextView>(R.id.tvSurname2).text = userEditProfile.surname
             findViewById<TextView>(R.id.tvEmail2).text = userEditProfile.email
             findViewById<TextView>(R.id.tvPhone2).text = userEditProfile.phone
             findViewById<TextView>(R.id.tvIdPassport2).text = userEditProfile.idPassport
-            findViewById<TextView>(R.id.tvNationality2).text= userEditProfile.nationality
+            findViewById<TextView>(R.id.tvNationality2).text = userEditProfile.nationality
             findViewById<TextView>(R.id.nkmTraveled2).text = userEditProfile.kmTraveled
             UserRepository.saveUser(userEditProfile)
         }
@@ -31,20 +31,19 @@ class EditProfileActivity: AppCompatActivity() {
         val saveChangesButton: Button = findViewById(R.id.saveChanges)
         saveChangesButton.setOnClickListener {
             if (userEditProfile != null) {
-                var name=this.findViewById<TextView>(R.id.tvName2).text.toString()
-                var username=this.findViewById<TextView>(R.id.tvSurname2).text.toString()
-                var email=this.findViewById<TextView>(R.id.tvEmail2).text.toString()
-                var phone=this.findViewById<TextView>(R.id.tvPhone2).text.toString()
-                var idPassport=this.findViewById<TextView>(R.id.tvIdPassport2).text.toString()
-                var nation=this.findViewById<TextView>(R.id.tvNationality2).text.toString()
-                var kmTraveled=this.findViewById<TextView>(R.id.nkmTraveled2).text.toString()
-                var user= User(name, username, email, phone, idPassport, nation, kmTraveled)
+                var name = this.findViewById<TextView>(R.id.tvName2).text.toString()
+                var username = this.findViewById<TextView>(R.id.tvSurname2).text.toString()
+                var email = this.findViewById<TextView>(R.id.tvEmail2).text.toString()
+                var phone = this.findViewById<TextView>(R.id.tvPhone2).text.toString()
+                var idPassport = this.findViewById<TextView>(R.id.tvIdPassport2).text.toString()
+                var nation = this.findViewById<TextView>(R.id.tvNationality2).text.toString()
+                var kmTraveled = this.findViewById<TextView>(R.id.nkmTraveled2).text.toString()
+                var user = User(name, username, email, phone, idPassport, nation, kmTraveled)
                 UserRepository.setUser(user)
                 navigateToProfile()
             }
         }
     }
-
     private fun navigateToProfile() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")

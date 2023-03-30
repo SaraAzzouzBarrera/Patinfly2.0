@@ -14,7 +14,6 @@ import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 
 class LoginActivity : AppCompatActivity(), LoginView {
-
     private val presenter = LoginPresenter(this, LoginInteractor())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 if (emailValue.equals(user.email)) {
                     navigateToProfile()
                     this.showProgress()
-
                     Log.d("MainActivity-Debug", message)
                     validateCredentials()
                 } else if (emailValue != (user.email)) {
@@ -43,7 +41,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 }
             } else{
                 this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
-
             }
         }
         val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)
@@ -51,7 +48,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
             this.navigateToSignup()
         }
     }
-
     private fun validateCredentials() {
         val email: EditText = this.findViewById(R.id.loginEmailEditText)
         val password: EditText = this.findViewById(R.id.loginPasswordEditText)

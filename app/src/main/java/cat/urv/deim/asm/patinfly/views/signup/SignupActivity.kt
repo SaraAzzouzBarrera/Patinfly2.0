@@ -1,6 +1,5 @@
 package cat.urv.deim.asm.patinfly.views.signup
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +16,6 @@ class SignupActivity: AppCompatActivity(), SignupView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
 
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText = this.findViewById(R.id.Surnames)
@@ -61,14 +59,18 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val nacValue = nation
             val kmTraveledValue = kmTraveled.text.toString()
 
-            var user = User(
-                nameValue, surnamesValue, emailValue, phoneValue,
-                idPassportValue, nacValue, kmTraveledValue
-            )
-            UserRepository.saveUser(user)
-            this.navigateToProfile()
-            showProgress()
-            validateCredentials()
+            if ((nameValue=="")||(surnamesValue=="")||(emailValue=="")||(phoneValue=="")||(phoneValue=="")||(idPassportValue=="")||(kmTraveledValue=="")){
+                this.findViewById<TextView>(R.id.incorrect).setText("Enter all data correctly!")
+            }else{
+                var user = User(
+                    nameValue, surnamesValue, emailValue, phoneValue,
+                    idPassportValue, nacValue, kmTraveledValue
+                )
+                UserRepository.saveUser(user)
+                this.navigateToProfile()
+                showProgress()
+                validateCredentials()
+            }
         }
     }
     private fun validateCredentials() {
@@ -81,7 +83,6 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
         presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.text.toString(),
             idPassport.text.toString(), nat.textAlignment.toString(), kmTraveled.text.toString())
-
     }
     override fun onStart() {
         super.onStart()
@@ -90,41 +91,36 @@ class SignupActivity: AppCompatActivity(), SignupView {
         super.onRestart()
         this.hideProgress()
     }
-
     override fun showProgress() {
         this.findViewById<ProgressBar>(R.id.signupProgressBar).visibility = View.VISIBLE
     }
-
     fun showToast(message: String){
         var a =1
     }
     override fun hideProgress() {
         this.findViewById<ProgressBar>(R.id.signupProgressBar).visibility = View.INVISIBLE
     }
-
     override fun setNameError() {
-        this.findViewById<EditText>(R.id.Name).setText("")
+        this.findViewById<EditText>(R.id.Name).setText("Enter correct name!")
     }
-
     override fun setSurnamesError() {
-        this.findViewById<EditText>(R.id.Surnames).setText("")
+        this.findViewById<EditText>(R.id.Surnames).setText("Enter correct surname!")
     }
 
     override fun setEmailError(){
-        this.findViewById<EditText>(R.id.Email).setText("")
+        this.findViewById<EditText>(R.id.Email).setText("Enter correct email!")
     }
     override fun setPhoneError(){
-        this.findViewById<EditText>(R.id.Phone).setText("")
+        this.findViewById<EditText>(R.id.Phone).setText("Enter correct phone!")
     }
-
     override fun setIdPassportError(){
-        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("")
+        this.findViewById<EditText>(R.id.IDcardOrPassport).setText("Enter correct ID or Passport!")
     }
     override fun setNatError(){
-        this.findViewById<EditText>(R.id.Spinner).setText("")
+        this.findViewById<EditText>(R.id.Spinner).setText("Enter correct nationality!")
     }
     override fun setKmTraveledError(){
-        this.findViewById<EditText>(R.id.kmTraveled).setText("")
+        this.findViewById<EditText>(R.id.kmTraveled).setText("Enter correct Km Traveled!")
     }
     override fun navigateToProfile() {
         val intent: Intent = Intent()
