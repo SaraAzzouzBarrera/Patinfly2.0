@@ -8,4 +8,5 @@ interface LoginView {
     fun setPasswordError()
     fun navigateToProfile()
     fun navigateToSignup()
+    fun navigateToScooterListActivity()
 }

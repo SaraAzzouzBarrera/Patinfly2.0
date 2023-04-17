@@ -95,5 +95,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         intent.setClass(this, SignupActivity::class.java)
         this.startActivity(intent)
     }
+
+    override fun navigateToScooterListActivity() {
+        val intent: Intent = Intent()
+        intent.putExtra("key", "value")
+        intent.setClass(this, SignupActivity::class.java)
+        this.startActivity(intent)
+    }
 }
 
