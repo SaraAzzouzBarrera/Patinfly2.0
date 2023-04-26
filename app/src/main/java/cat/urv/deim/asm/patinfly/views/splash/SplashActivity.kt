@@ -13,6 +13,7 @@ import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
 import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
 
 
+//Sara Azzouz Barrera i Clàudia Tombas Coll, grup ASM02.
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
