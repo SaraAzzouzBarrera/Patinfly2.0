@@ -12,12 +12,6 @@
         android:theme="@style/Theme.Patinfly"
         tools:targetApi="31">
         <activity
-            android:name=".ScooterDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ScootersListActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
