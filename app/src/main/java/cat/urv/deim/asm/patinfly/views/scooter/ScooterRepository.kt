@@ -21,12 +21,12 @@ class ScooterRepository {
 
         fun activeScooters(context: Context): Scooters {
             val resource: String = AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
-            return ScooterRepository.activeScooters(context, resource)
+            return activeScooters(context, resource)
         }
 
         fun activeScooters(): Scooters {
             val scooters: Scooters = Scooters()
-            val uuidList: Array<String> = AppConfig.DEFAULT_SCOOTERS_ID_ARRAY
+            val uuidList: Array<String> = AppConfig.DEFAULT_SCOOTERS_ARRAY
             var scooter: Scooter
             uuidList.forEach {
                 scooter = Scooter(uuid = it, name = it, long = it, lat = it, batteryLevel = it, kmTraveled = it, dateMaintenance = it, state = it, free = it)

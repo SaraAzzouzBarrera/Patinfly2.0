@@ -34,11 +34,12 @@ class EditProfileActivity: AppCompatActivity() {
                 var name = this.findViewById<TextView>(R.id.tvName2).text.toString()
                 var username = this.findViewById<TextView>(R.id.tvSurname2).text.toString()
                 var email = this.findViewById<TextView>(R.id.tvEmail2).text.toString()
+                var password = this.findViewById<TextView>(R.id.tvEmail2).text.toString()
                 var phone = this.findViewById<TextView>(R.id.tvPhone2).text.toString()
                 var idPassport = this.findViewById<TextView>(R.id.tvIdPassport2).text.toString()
                 var nation = this.findViewById<TextView>(R.id.tvNationality2).text.toString()
                 var kmTraveled = this.findViewById<TextView>(R.id.nkmTraveled2).text.toString()
-                var user = User(name, username, email, phone, idPassport, nation, kmTraveled)
+                var user = User(name, username, email, password, phone, idPassport, nation, kmTraveled)
                 UserRepository.setUser(user)
                 navigateToProfile()
             }
