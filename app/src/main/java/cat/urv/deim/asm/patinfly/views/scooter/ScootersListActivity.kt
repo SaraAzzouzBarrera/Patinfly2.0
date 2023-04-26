@@ -2,46 +2,29 @@ package cat.urv.deim.asm.patinfly.views.scooter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
-import cat.urv.deim.asm.patinfly.views.adapters.ScooterRecyclerViewAdapter
 
-class ScootersListActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityScootersListBinding
+class ScooterListActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ScooterListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_scooter_list)
 
-        val scootersConBateria = scooters.filter { it.bateria > 0.0 }
-        scootersConBateria.forEach { println("${it.nombre}: ${it.bateria}") }
-        val scooter= ScooterRepository.activeScooters()
-        ScooterRepository.activeScooterList()
+        recyclerView = findViewById(R.id.recyclerViewScooters)
+        adapter = ScooterListAdapter()
 
-        if (scooter != null) {
-            findViewById<TextView>(R.id.scooterNameTextView).text = scooter.name
-            findViewById<TextView>(R.id.scooterBatteryTextView).text = scooter.batteryLevel
-            ScooterRepository.activeScooterList(scooter)
-        }
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Binding MVVM o MVP
-        binding = ActivityScootersListBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        val scooterRepository = ScooterRepository(ScooterDatabase.getInstance(this).scooterDao())
+        val availableScooters = scooterRepository.getAllScooters().filter { it.state == "ACTIVE" }
 
-        // Increase performance when the size is static
-        binding.scooterRecyclerView.setHasFixedSize(true)
-
-        // Our RecyclerView is using the linear layout manager
-        val layoutManager = LinearLayoutManager(applicationContext)
-        binding.scooterRecyclerView.setLayoutManager(layoutManager)
-
-        // Get the list of active scooters from the repository
-        val scooters = ScooterRepository.activeScooters()
-
-        // Set the adapter to the RecyclerView
-        val adapter = ScooterRecyclerViewAdapter(scooters)
-        binding.scooterRecyclerView.adapter = adapter
+        adapter.setScooters(availableScooters)
     }
 }
