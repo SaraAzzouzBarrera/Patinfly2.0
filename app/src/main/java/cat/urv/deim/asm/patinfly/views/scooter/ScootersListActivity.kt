@@ -3,10 +3,10 @@ package cat.urv.deim.asm.patinfly.views.scooter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
 import cat.urv.deim.asm.patinfly.views.adapters.ScooterRecyclerViewAdapter
-import cat.urv.deim.asm.patinfly.views.base.AppConfig
+import cat.urv.deim.asm.patinfly.views.database.AppConfig
+
 
 class ScootersListActivity : AppCompatActivity() {
 
@@ -14,8 +14,6 @@ class ScootersListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //MVC
-        //setContentView(R.layout.activity_main)
 
         //Binding MVVM o MVP
         binding = ActivityScootersListBinding.inflate(layoutInflater)

@@ -31,16 +31,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     "email: %s password: %s",
                     emailValue, passwordValue
                 )
-                if (emailValue.equals(user.email)) {
+                if (emailValue.equals(user.email)&&passwordValue.equals(user.password)) {
                     navigateToProfile()
                     this.showProgress()
                     Log.d("MainActivity-Debug", message)
                     validateCredentials()
-                } else if (emailValue != (user.email)) {
+                } else{
                     this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
                 }
             } else{
-                this.findViewById<TextView>(R.id.textView2).setText("Enter valid data, please!")
+                this.findViewById<TextView>(R.id.textView2).setText("If you don't have user, register!")
             }
         }
         val signUpButton: Button = this.findViewById<Button>(R.id.loginSignUp)

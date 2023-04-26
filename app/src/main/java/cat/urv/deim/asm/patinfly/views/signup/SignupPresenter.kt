@@ -5,9 +5,9 @@ import android.content.Intent
 class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupInteraction) :
     SignupInteraction.OnSignUpFinishedListener {
 
-    fun validateCredentials(name: String, surname: String, email: String, phone: String, IdPas: String, nac: String, kmTraveled: String) {
+    fun validateCredentials(name: String, surname: String, email: String, password:String, phone: String, IdPas: String, nac: String, kmTraveled: String) {
         signupView?.showProgress()
-        signupInteraction.signup(name, surname, email, phone, IdPas, nac, kmTraveled, this)
+        signupInteraction.signup(name, surname, email, password, phone, IdPas, nac, kmTraveled, this)
     }
     override fun onNameError() {
         signupView?.apply {
@@ -24,6 +24,12 @@ class SignupPresenter(var signupView: SignupView, val signupInteraction: SignupI
     override fun onEmailError() {
         signupView?.apply {
             setEmailError()
+            hideProgress()
+        }
+    }
+    override fun onPasswordError() {
+        signupView?.apply {
+            setPasswordError()
             hideProgress()
         }
     }

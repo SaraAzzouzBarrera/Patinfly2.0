@@ -7,6 +7,7 @@ data class User(
     var name: String,
     var surname: String,
     var email: String,
+    var password: String,
     var phone: String,
     var idPassport: String,
     var nationality: String,

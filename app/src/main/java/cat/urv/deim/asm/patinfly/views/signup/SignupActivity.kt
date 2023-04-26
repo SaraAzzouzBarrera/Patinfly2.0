@@ -20,6 +20,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText = this.findViewById(R.id.Surnames)
         val email: EditText = this.findViewById(R.id.Email)
+        val password: EditText= this.findViewById(R.id.Password)
         val phone: EditText = this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
         val nac: Spinner = this.findViewById(R.id.Spinner)
@@ -54,6 +55,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
             val nameValue = name.text.toString()
             val surnamesValue = surnames.text.toString()
             val emailValue = email.text.toString()
+            val password= email.text.toString()
             val phoneValue = phone.text.toString()
             val idPassportValue = idPassport.text.toString()
             val nacValue = nation
@@ -63,7 +65,7 @@ class SignupActivity: AppCompatActivity(), SignupView {
                 this.findViewById<TextView>(R.id.incorrect).setText("Enter all data correctly!")
             }else{
                 var user = User(
-                    nameValue, surnamesValue, emailValue, phoneValue,
+                    nameValue, surnamesValue, emailValue, password, phoneValue,
                     idPassportValue, nacValue, kmTraveledValue
                 )
                 UserRepository.saveUser(user)
@@ -77,11 +79,12 @@ class SignupActivity: AppCompatActivity(), SignupView {
         val name: EditText = this.findViewById(R.id.Name)
         val surnames: EditText =this.findViewById(R.id.Surnames)
         val email: EditText = this.findViewById(R.id.Email)
+        val password: EditText= this.findViewById(R.id.Password)
         val phone: EditText =this.findViewById(R.id.Phone)
         val idPassport: EditText = this.findViewById(R.id.IDcardOrPassport)
         val nat: Spinner=findViewById(R.id.Spinner)
         val kmTraveled: EditText =this.findViewById(R.id.kmTraveled)
-        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), phone.text.toString(),
+        presenter.validateCredentials(name.text.toString(), surnames.text.toString(), email.text.toString(), password.text.toString(), phone.text.toString(),
             idPassport.text.toString(), nat.textAlignment.toString(), kmTraveled.text.toString())
     }
     override fun onStart() {
@@ -109,6 +112,11 @@ class SignupActivity: AppCompatActivity(), SignupView {
 
     override fun setEmailError(){
         this.findViewById<EditText>(R.id.Email).setText("Enter correct email!")
+    }
+    override fun setPasswordError() {
+        this.findViewById<EditText>(R.id.loginPasswordEditText).setText("")
+        this.findViewById<TextView>(R.id.textView2).setText("Enter a correct password")
+
     }
     override fun setPhoneError(){
         this.findViewById<EditText>(R.id.Phone).setText("Enter correct phone!")

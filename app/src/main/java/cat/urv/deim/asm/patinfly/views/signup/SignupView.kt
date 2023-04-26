@@ -6,6 +6,7 @@ interface SignupView {
         fun setNameError()
         fun setSurnamesError()
         fun setEmailError()
+        fun setPasswordError()
         fun setPhoneError()
         fun setIdPassportError()
         fun setNatError()
