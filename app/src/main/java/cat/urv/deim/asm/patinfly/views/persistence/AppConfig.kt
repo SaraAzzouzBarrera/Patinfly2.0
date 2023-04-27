@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.base
+package cat.urv.deim.asm.patinfly.views.persistence
 
 class AppConfig {
     companion object{

@@ -2,12 +2,8 @@ package cat.urv.deim.asm.patinfly.views.scooter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.Spinner
-import java.io.File
-import com.fasterxml.jackson.databind.ObjectMapper
+import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
-import com.fasterxml.jackson.module.kotlin.readValue
 
 
 class ScooterDetailActivity : AppCompatActivity() {
@@ -15,18 +11,19 @@ class ScooterDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooter_detail)
 
-        val uuid: EditText = this.findViewById(R.id.uuid)
-        val name: EditText = this.findViewById(R.id.ScooterName)
-        val long: EditText = this.findViewById(R.id.longScooter)
-        val lat: EditText = this.findViewById(R.id.latScooter)
-        val bat: EditText = this.findViewById(R.id.batteryLevel)
-        val mTraveled: EditText = this.findViewById(R.id.mTraveled)
-        val initialDate: Spinner = this.findViewById(R.id.initialData)
-        val lastdata: EditText = this.findViewById(R.id.LastData)
-        val state: EditText = this.findViewById(R.id.state)
+        val scooterList = ScooterRepository.activeScootersList(this, "datascooters.json")
 
-        val objectMapper = ObjectMapper()
-        val scooters = objectMapper.readValue<List<Scooter>>(File("scooters.json"))
+        if(scooterList!=null) {
+            findViewById<TextView>(R.id.uuid).text = scooterList[0].uuid
+            findViewById<TextView>(R.id.ScooterName).text = scooterList[1].name
+            findViewById<TextView>(R.id.longScooter).text= scooterList[2].longitude.toString()
+            findViewById<TextView>(R.id.latScooter).text= scooterList[3].latitude.toString()
+            findViewById<TextView>(R.id.batteryLevel).text= scooterList[4].batteryLevel.toString()
+            findViewById<TextView>(R.id.mTravel).text= scooterList[5].kmUse.toString()
+            findViewById<TextView>(R.id.LastData).text= scooterList[6].dateLastMaintenance
+            findViewById<TextView>(R.id.state).text = scooterList[7].state
+            findViewById<TextView>(R.id.onRent).text = scooterList[7].onRent.toString()
+        }
 
 
     }

@@ -3,9 +3,9 @@ package cat.urv.deim.asm.patinfly.views.developing
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import android.widget.TextView
-import cat.urv.deim.asm.patinfly.views.base.DataBaseActivity
-import cat.urv.deim.asm.patinfly.views.base.UserDao
-import cat.urv.deim.asm.patinfly.views.base.User
+import cat.urv.deim.asm.patinfly.views.persistence.DataBaseActivity
+import cat.urv.deim.asm.patinfly.views.persistence.UserDao
+import cat.urv.deim.asm.patinfly.views.persistence.UserE
 
 import java.util.*
 import java.util.concurrent.Executors
@@ -20,7 +20,7 @@ class DevUtils {
         }
         fun insertFakeData(userDao: UserDao){
             Executors.newSingleThreadExecutor().execute(Runnable {
-                val user= User(0, "Sara", "Azzouz")
+                val user= UserE(0, "Sara", "Azzouz")
                 try {
                     userDao.insertAll(user)
                 }catch (e: SQLiteConstraintException){
@@ -31,7 +31,7 @@ class DevUtils {
         }
 
         fun plotDBUsers(userDao: UserDao) {
-            var users: List<User> = LinkedList<User>()
+            var users: List<UserE> = LinkedList<UserE>()
 
             Executors.newSingleThreadExecutor().execute(Runnable {
                 users = userDao.getAll()
@@ -45,7 +45,7 @@ class DevUtils {
         }
 
         fun updateView(userDao: UserDao, view:TextView){
-            var users: List<User> = LinkedList<User>()
+            var users: List<UserE> = LinkedList<UserE>()
 
             Executors.newSingleThreadExecutor().execute(Runnable {
                 users = userDao.getAll()

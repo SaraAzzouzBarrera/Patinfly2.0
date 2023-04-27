@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.base
+package cat.urv.deim.asm.patinfly.views.persistence
 
 import android.content.Context
 import androidx.room.Database
@@ -8,16 +8,16 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 //TODO: add entity Scooter::class
-@Database(entities = [User::class], version = 1)
-abstract class AppDatabase : RoomDatabase() {
+@Database(entities = [UserE::class], version = 1)
+abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
     //abstract fun scooterDao(): ScooterDao
 
     companion object {
 
-        @Volatile private var INSTANCE: AppDatabase? = null
+        @Volatile private var INSTANCE: AppDataBase? = null
 
-        fun getInstance(context: Context): AppDatabase =
+        public fun getInstance(context: Context): AppDataBase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
@@ -31,7 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext,
-                AppDatabase::class.java, "application_database.db")
+                AppDataBase::class.java, "application_database.db")
                 //.addMigrations(MIGRATION_1_2)
                 .build()
     }
