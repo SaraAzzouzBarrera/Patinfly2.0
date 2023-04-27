@@ -31,7 +31,7 @@ class ScootersListActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val scooterList = ScooterRepository.activeScootersList(this, "scooter.json")
+        val scooterList = ScooterRepository.activeScootersList(this, "dadescooter.json")
 
         //Scooters from json file. To access to the file raw/scooters.json:
         val scooters:Scooters  = ScooterRepository.activeScooters(this,
