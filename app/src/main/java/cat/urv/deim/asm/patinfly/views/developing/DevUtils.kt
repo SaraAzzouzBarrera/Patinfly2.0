@@ -3,9 +3,9 @@ package cat.urv.deim.asm.patinfly.views.developing
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import android.widget.TextView
-import cat.urv.deim.asm.patinfly.views.database.DataBaseActivity
-import cat.urv.deim.asm.patinfly.views.database.UserDao
-import cat.urv.deim.asm.patinfly.views.database.User
+import cat.urv.deim.asm.patinfly.views.base.DataBaseActivity
+import cat.urv.deim.asm.patinfly.views.base.UserDao
+import cat.urv.deim.asm.patinfly.views.base.User
 
 import java.util.*
 import java.util.concurrent.Executors

@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.database
+package cat.urv.deim.asm.patinfly.views.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,11 +20,11 @@ class DataBaseActivity : AppCompatActivity() {
         // First database
         val db = Room.databaseBuilder(
             applicationContext,
-            AppDataBase::class.java, "database-name"
+            AppDatabase::class.java, "database-name"
         ).build()
 
         // Second database
-        val dbSecondary = AppDataBase.getInstance(this)
+        val dbSecondary = AppDatabase.getInstance(this)
 
         val userDao: UserDao = db.userDao()
         val userDatabaseSecondary: UserDao = dbSecondary.userDao()

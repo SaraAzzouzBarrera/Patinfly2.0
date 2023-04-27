@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.database
+package cat.urv.deim.asm.patinfly.views.base
 
 
 import androidx.room.Dao

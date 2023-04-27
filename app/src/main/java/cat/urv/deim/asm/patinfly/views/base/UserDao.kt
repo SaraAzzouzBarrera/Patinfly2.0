@@ -1,10 +1,9 @@
-package cat.urv.deim.asm.patinfly.views.database
+package cat.urv.deim.asm.patinfly.views.base
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import cat.urv.deim.asm.patinfly.views.database.User
 
 @Dao
 interface UserDao {
