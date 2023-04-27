@@ -20,12 +20,11 @@ class ScooterRepository {
 
 
         fun activeScootersList(context: Context, resource: String): List<Scooter> {
-                val jsonString = AssetsProvider.getJsonDataFromRawAsset(context, resource)
-                val gson = Gson()
-                val scooterList: Scooters = gson.fromJson(jsonString, Scooters::class.java)
-                return scooterList.scooters.filter { it.state == "ACTIVE" }
-
+            val jsonString = AssetsProvider.getJsonDataFromRawAsset(context, resource)
+            val gson = Gson()
+            val scooterList: Scooters = gson.fromJson(jsonString, Scooters::class.java)
+            return scooterList.scooters.filter { it.state == "ACTIVE" && it.batteryLevel > 0.0}
         }
 
     }
-    }
+}
