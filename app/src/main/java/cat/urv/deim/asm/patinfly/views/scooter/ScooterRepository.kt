@@ -1,20 +1,36 @@
 package cat.urv.deim.asm.patinfly.views.scooter
 
 import android.content.Context
+import android.content.res.AssetManager
 import cat.urv.deim.asm.patinfly.views.scooter.AssetsProvider.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.reflect.Type
 import kotlin.collections.filter
 
 
 class ScooterRepository {
     companion object {
-        private var scooterList: Scooters? = null
-        fun loadScooter(context: Context, resource: String): Scooters? {
-            val jsonResource: String? = getJsonDataFromRawAsset(context, resource)
-            jsonResource.let {
-                scooterList = ScooterParser.parseFromJson(jsonResource!!)
+        fun loadJSONData(assetManager: AssetManager): List<Scooter> {
+            var inputStream: InputStream? = null
+            try {
+                inputStream = assetManager.open("scooter.json")
+                val reader = InputStreamReader(inputStream)
+                val type: Type = object : TypeToken<List<Scooter>>() {}.type
+                return Gson().fromJson(reader, type)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } finally {
+                try {
+                    inputStream?.close()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
             }
-            return scooterList
+            return emptyList()
         }
         fun activeScootersList(context: Context, resource: String): List<Scooter> {
             val jsonString: String? = getJsonDataFromRawAsset(context, resource)

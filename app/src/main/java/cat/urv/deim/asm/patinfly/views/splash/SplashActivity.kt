@@ -15,15 +15,12 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
+        // Carregar les dades del scooter
+        val data = ScooterRepository.loadJSONData(assets)
         window.setFlags(
             WindowManager.LayoutParams.FLAGS_CHANGED,
             WindowManager.LayoutParams.FLAGS_CHANGED
         )
-
-        // Carregar les dades del scooter
-        val data = loadJSONData(assets)
-
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
             startActivity(intent)

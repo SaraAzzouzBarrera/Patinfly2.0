@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.scooter.Scooter
 import cat.urv.deim.asm.patinfly.views.scooter.Scooters
 
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :

@@ -40,24 +40,15 @@ class ProfileActivity : AppCompatActivity() {
         logOutButton.setOnClickListener {
             navigateToLogin()
         }
-        val scootersButton: Button = findViewById(R.id.EditProfile)
-        editProfileButton.setOnClickListener {
-            if (scootersButton != null) {
+        val scootersButton: Button = findViewById(R.id.ScooterListActivity)
+        scootersButton.setOnClickListener {
                 navigateToScooterListActivity()
-            }
-
         }
     }
     private fun navigateToLogin() {
         val intent: Intent = Intent()
         intent.putExtra("key", "value")
         intent.setClass(this, LoginActivity::class.java)
-        this.startActivity(intent)
-    }
-    private fun navigateToSignup() {
-        val intent: Intent = Intent()
-        intent.putExtra("key", "value")
-        intent.setClass(this, SignupActivity::class.java)
         this.startActivity(intent)
     }
     private fun navigateToEditProfile() {
