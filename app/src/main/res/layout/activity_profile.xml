@@ -242,6 +242,17 @@
             android:background="@drawable/buttonstylewithgradient"
             android:text="Log Out"
             android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/ScooterListActivity"
+            android:layout_width="222dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonstylewithgradient"
+            android:text="Scooters List"
+            android:textColor="#fff" />
+
     </LinearLayout>
 
 
