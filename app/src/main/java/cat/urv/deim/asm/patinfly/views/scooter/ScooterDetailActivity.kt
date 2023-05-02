@@ -11,7 +11,7 @@ class ScooterDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooter_detail)
 
-        val scooterList = ScooterRepository.activeScootersList(this, "datascooters.json")
+        val scooterList = ScooterRepository.activeScootersList(this, "dadescooters.json")
 
         if(scooterList!=null) {
             findViewById<TextView>(R.id.uuid).text = scooterList[0].uuid

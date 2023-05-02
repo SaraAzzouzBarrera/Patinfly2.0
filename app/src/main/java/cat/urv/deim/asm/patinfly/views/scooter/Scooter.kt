@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "scooters")
 data class Scooter(
     @PrimaryKey val uuid: String,
-    val name: String,
-    val longitude: Double,
-    val latitude: Double,
-    val batteryLevel: Double,
-    val kmUse: Double,
-    val dateLastMaintenance: String,
-    val state: String,
-    val onRent: Boolean
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "longitude") val longitude: Double,
+    @ColumnInfo(name = "latitude") val latitude: Double,
+    @ColumnInfo(name = "batteryLevel") val batteryLevel: Double,
+    @ColumnInfo(name = "kmUse") val kmUse: Double,
+    @ColumnInfo(name = "dateLastMaintenance") val dateLastMaintenance: String,
+    @ColumnInfo(name = "state")val state: String,
+    @ColumnInfo(name = "onRent")val onRent: Boolean
 )

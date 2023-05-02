@@ -16,11 +16,11 @@ class ScootersListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooter_detail)
 
-        val scooterList = ScooterRepository.activeScootersList(this, "datascooters.json")
+        val scooterList = ScooterRepository.activeScootersList(this, "scooters.json")
 
         if(scooterList!=null) {
             findViewById<TextView>(R.id.ScooterName).text = scooterList[0].name
-            findViewById<TextView>(R.id.batteryLevel).text= scooterList[1].longitude.toString()
+            findViewById<TextView>(R.id.batteryLevel).text= scooterList[1].longitude
         }
 
        //Hay que crear el botton para ver el scooter seleccionado (navigateTo DetailActivity)

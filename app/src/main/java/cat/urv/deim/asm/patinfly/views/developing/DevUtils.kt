@@ -4,23 +4,25 @@ import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.views.persistence.DataBaseActivity
-import cat.urv.deim.asm.patinfly.views.persistence.UserDao
-import cat.urv.deim.asm.patinfly.views.persistence.UserE
+import cat.urv.deim.asm.patinfly.views.scooter.Scooter
+import cat.urv.deim.asm.patinfly.views.scooter.ScooterDao
+
 
 import java.util.*
 import java.util.concurrent.Executors
 
 class DevUtils {
     companion object{
-        fun deleteFakeData(userDao: UserDao){
+        fun deleteFakeData(scooter: ScooterDao){
+            val scooter= Scooter? = null
             Executors.newSingleThreadExecutor().execute(Runnable {
-                userDao.deleteAll()
+                scooter.delete(scooter)
 
             })
         }
-        fun insertFakeData(userDao: UserDao){
+        fun insertFakeData(userDao: ScooterDao){
             Executors.newSingleThreadExecutor().execute(Runnable {
-                val user= UserE(0, "Sara", "Azzouz")
+                val user= Scooter("546fcg", "Sara", 23.3, 14.3, 100.0, 20.5,"Today", "ACTIVE",false)
                 try {
                     userDao.insertAll(user)
                 }catch (e: SQLiteConstraintException){
@@ -30,29 +32,31 @@ class DevUtils {
 
         }
 
-        fun plotDBUsers(userDao: UserDao) {
-            var users: List<UserE> = LinkedList<UserE>()
+        fun plotDBUsers(scooters: ScooterDao) {
+            var scooter: List<Scooter> = LinkedList<Scooter>()
 
             Executors.newSingleThreadExecutor().execute(Runnable {
-                users = userDao.getAll()
-                for (user in users) {
+                scooter = scooters.getAll()
+                for (scooters in scooter) {
                     Log.d(
                         DevUtils::class.java.simpleName,
-                        "Show data from userDao ==> User: (%d) %s %s".format(user.uid, user.firstName, user.lastName)
+                        "Show data from userDao ==> User: (%d) %s %s".format(scooters.uuid, scooters.name, scooters.longitude, scooter.latitude,
+                            scooters.batteryLevel, scooters.kmUse, scooters.dateLastMaintenance, scooters.state, scooters.onRent)
                     )
                 }
             })
         }
 
-        fun updateView(userDao: UserDao, view:TextView){
-            var users: List<UserE> = LinkedList<UserE>()
+        fun updateView(scooter: ScooterDao, view:TextView){
+            var scooterList: List<Scooter> = LinkedList<Scooter>()
 
             Executors.newSingleThreadExecutor().execute(Runnable {
-                users = userDao.getAll()
-                for (user in users) {
+                scooterList = scooter.getAll()
+                for (scooter in scooterList) {
                     Log.d(
                         DevUtils::class.java.simpleName,
-                        "Update User: (%d) %s %s".format(user.uid, user.firstName, user.lastName)
+                        "Update User: (%d) %s %s".format(scooter.uuid, scooter.name, scooter.longitude, scooter.latitude,
+                            scooter.batteryLevel, scooter.kmUse, scooter.dateLastMaintenance, scooter.state, scooter.onRent)
                     )
                 }
             })
