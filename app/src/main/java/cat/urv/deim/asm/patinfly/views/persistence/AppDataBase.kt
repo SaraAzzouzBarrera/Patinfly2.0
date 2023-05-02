@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 //TODO: add entity Scooter::class
-@Database(entities = [UserE::class], version = 1)
+/*@Database(entities = [UserE::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
     //abstract fun scooterDao(): ScooterDao
@@ -35,4 +35,4 @@ abstract class AppDataBase : RoomDatabase() {
                 //.addMigrations(MIGRATION_1_2)
                 .build()
     }
-}
+}*/

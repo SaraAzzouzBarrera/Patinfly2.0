@@ -3,7 +3,6 @@ package cat.urv.deim.asm.patinfly.views.developing
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import android.widget.TextView
-import cat.urv.deim.asm.patinfly.views.persistence.DataBaseActivity
 import cat.urv.deim.asm.patinfly.views.scooter.Scooter
 import cat.urv.deim.asm.patinfly.views.scooter.ScooterDao
 
@@ -14,9 +13,11 @@ import java.util.concurrent.Executors
 class DevUtils {
     companion object{
         fun deleteFakeData(scooter: ScooterDao){
-            val scooter= Scooter? = null
+            val scooters: Scooter?= null
             Executors.newSingleThreadExecutor().execute(Runnable {
-                scooter.delete(scooter)
+                if (scooters != null) {
+                    scooter.delete(scooters)
+                }
 
             })
         }
@@ -26,7 +27,7 @@ class DevUtils {
                 try {
                     userDao.insertAll(user)
                 }catch (e: SQLiteConstraintException){
-                    Log.d(DataBaseActivity::class.simpleName,"Unique value error")
+                 //   Log.d(DataBaseActivity::class.simpleName,"Unique value error")
                 }
             })
 
@@ -40,7 +41,7 @@ class DevUtils {
                 for (scooters in scooter) {
                     Log.d(
                         DevUtils::class.java.simpleName,
-                        "Show data from userDao ==> User: (%d) %s %s".format(scooters.uuid, scooters.name, scooters.longitude, scooter.latitude,
+                        "Show data from userDao ==> User: (%d) %s %s".format(scooters.uuid, scooters.name, scooters.longitude, scooters.latitude,
                             scooters.batteryLevel, scooters.kmUse, scooters.dateLastMaintenance, scooters.state, scooters.onRent)
                     )
                 }

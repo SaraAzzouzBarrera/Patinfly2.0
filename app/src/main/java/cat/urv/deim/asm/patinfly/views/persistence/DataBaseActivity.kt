@@ -9,7 +9,7 @@ import cat.urv.deim.asm.patinfly.views.developing.DevUtils
 import cat.urv.deim.asm.patinfly.views.scooter.Scooter
 import cat.urv.deim.asm.patinfly.views.scooter.Scooters
 
-class DataBaseActivity : AppCompatActivity() {
+/*class DataBaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_base)
@@ -54,3 +54,4 @@ class DataBaseActivity : AppCompatActivity() {
         DevUtils.updateView(userDao, view)
     }
 }
+*/

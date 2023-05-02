@@ -20,8 +20,9 @@ class ScootersListActivity : AppCompatActivity() {
 
         if(scooterList!=null) {
             findViewById<TextView>(R.id.ScooterName).text = scooterList[0].name
-            findViewById<TextView>(R.id.batteryLevel).text= scooterList[1].longitude
+            findViewById<TextView>(R.id.batteryLevel).text= scooterList[1].longitude.toString()
         }
+        //cuando se pulse un scooter enseñar datos
 
        //Hay que crear el botton para ver el scooter seleccionado (navigateTo DetailActivity)
     }

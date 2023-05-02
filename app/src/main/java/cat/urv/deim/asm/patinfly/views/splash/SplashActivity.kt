@@ -31,12 +31,7 @@ class SplashActivity : AppCompatActivity() {
         }, 2000)
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
-
-            // Comprobar si la scooter no es nula y acceder a sus propiedades
-            if (scooters != null) {
-
-            }
-
+            listOf(scooters)
             startActivity(intent)
         }, 2000)
     }
