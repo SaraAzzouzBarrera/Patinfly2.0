@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         )
 
         // Carregar les dades del scooter
-        val scooters = ScooterRepository.loadScooter(this, "scooter.json")
+        val data = loadJSONData(assets)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
@@ -31,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
         }, 2000)
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
-            listOf(scooters)
+            listOf(data)
             startActivity(intent)
         }, 2000)
     }
