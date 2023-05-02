@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters.repository
 import android.content.Context
 import java.io.IOException
 

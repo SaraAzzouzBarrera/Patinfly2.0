@@ -1,10 +1,10 @@
-package cat.urv.deim.asm.patinfly.views.developing
+package cat.urv.deim.asm.patinfly.views.scooters.developing
 
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import android.widget.TextView
-import cat.urv.deim.asm.patinfly.views.scooter.Scooter
-import cat.urv.deim.asm.patinfly.views.scooter.ScooterDao
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
+import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 
 
 import java.util.*

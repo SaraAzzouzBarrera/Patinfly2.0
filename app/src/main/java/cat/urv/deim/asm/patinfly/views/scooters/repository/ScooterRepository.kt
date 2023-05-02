@@ -1,8 +1,10 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters.repository
 
 import android.content.Context
 import android.content.res.AssetManager
-import cat.urv.deim.asm.patinfly.views.scooter.AssetsProvider.Companion.getJsonDataFromRawAsset
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
+import cat.urv.deim.asm.patinfly.views.scooters.Scooters
+import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException

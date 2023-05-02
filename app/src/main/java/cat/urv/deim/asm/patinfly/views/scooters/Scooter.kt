@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

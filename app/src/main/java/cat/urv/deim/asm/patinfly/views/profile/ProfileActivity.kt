@@ -7,8 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.login.LoginActivity
-import cat.urv.deim.asm.patinfly.views.scooter.ScootersListActivity
-import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
+import cat.urv.deim.asm.patinfly.views.scooters.ScootersListActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 

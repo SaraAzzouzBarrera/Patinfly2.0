@@ -1,14 +1,5 @@
 package cat.urv.deim.asm.patinfly.views.persistence
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.TextView
-import androidx.room.Room
-import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.developing.DevUtils
-import cat.urv.deim.asm.patinfly.views.scooter.Scooter
-import cat.urv.deim.asm.patinfly.views.scooter.Scooters
-
 /*class DataBaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

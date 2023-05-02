@@ -7,7 +7,7 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import cat.urv.deim.asm.patinfly.views.scooter.ScooterRepository
+import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
 
 //Sara Azzouz Barrera i Clàudia Tombas Coll, grup ASM02.

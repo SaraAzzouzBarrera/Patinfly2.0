@@ -1,11 +1,10 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters
 
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Update
-import cat.urv.deim.asm.patinfly.views.scooter.Scooter
 
 @Dao
 interface ScooterDao {

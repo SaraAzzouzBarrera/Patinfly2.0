@@ -1,9 +1,10 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 
 
 class ScooterDetailActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class ScooterDetailActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.mTravel).text= scooterList[5].kmUse.toString()
             findViewById<TextView>(R.id.LastData).text= scooterList[6].dateLastMaintenance
             findViewById<TextView>(R.id.state).text = scooterList[7].state
-            findViewById<TextView>(R.id.onRent).text = scooterList[7].onRent.toString()
+            findViewById<TextView>(R.id.onRent).text = scooterList[8].onRent.toString()
         }
 
 

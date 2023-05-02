@@ -1,10 +1,11 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.adapters.ScooterRecyclerViewAdapter
+import cat.urv.deim.asm.patinfly.views.scooters.adapters.ScooterRecyclerViewAdapter
+import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 
 class ScootersListActivity : AppCompatActivity() {
 
@@ -14,10 +15,7 @@ class ScootersListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooters_list)
 
-        // Cargar la lista de scooters activos desde el archivo JSON
         val scooterList = ScooterRepository.activeScootersList(this, "scooter.json")
-
-        // Configurar el RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.scooter_recycler_view)
         val scooters = Scooters(scooterList)
         scootersAdapter = ScooterRecyclerViewAdapter(scooters)

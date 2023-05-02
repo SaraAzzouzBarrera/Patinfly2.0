@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.adapters
+package cat.urv.deim.asm.patinfly.views.scooters.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.scooter.Scooter
-import cat.urv.deim.asm.patinfly.views.scooter.Scooters
+import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
     RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {

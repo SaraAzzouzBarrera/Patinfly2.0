@@ -1,9 +1,10 @@
-package cat.urv.deim.asm.patinfly.views.scooter
+package cat.urv.deim.asm.patinfly.views.scooters.repository
+import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import com.google.gson.Gson
 
 class ScooterParser {
     companion object{
-        fun parseFromJson(json: String):Scooters{
+        fun parseFromJson(json: String): Scooters {
             val gson: Gson = Gson()
 
             var scooters: Scooters
