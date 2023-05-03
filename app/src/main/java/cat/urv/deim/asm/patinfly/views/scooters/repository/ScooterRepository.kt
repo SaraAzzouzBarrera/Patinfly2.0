@@ -40,9 +40,8 @@ class ScooterRepository {
             return emptyList()
         }
         fun activeScootersList(context: Context, resource: String): List<Scooter> {
-            val jsonString: String? = getJsonDataFromRawAsset(context, resource)
             val gson = Gson()
-            val scooterList: Scooters = gson.fromJson(jsonString, Scooters::class.java)
+            val scooterList: Scooters = gson.fromJson(resource, Scooters::class.java)
             return scooterList.scooters.filter { it.state == "ACTIVE" && it.batteryLevel > 0.0 && !it.onRent }
         }
         fun getAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
@@ -51,21 +50,21 @@ class ScooterRepository {
         fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.deleteAll()
         }
-        fun activeScooters(context: Context, resource: String): Scooters {
+        fun activeScooters(context: Context, resource: String): List<Scooter> {
             val scooters: Scooters
             val jsonResource: String? = getJsonDataFromRawAsset(context, resource)
             jsonResource.let {
                 scooters = ScooterParser.parseFromJson(jsonResource!!)
             }
-            return scooters
+            return scooters.scooters
         }
 
-        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: Scooters) = CoroutineScope(Dispatchers.Default).async {
+        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: List<Scooter>) = CoroutineScope(Dispatchers.Default).async {
                 try {
                     return@async scooterDao.insertAll(scooters)
                 } catch (e: SQLiteConstraintException) {
                     Log.d(ScooterRepository::class.simpleName, "Unique value error")
-                    return@async LinkedList<Scooter>()
+                    return@async Unit
                 }
             }
         }

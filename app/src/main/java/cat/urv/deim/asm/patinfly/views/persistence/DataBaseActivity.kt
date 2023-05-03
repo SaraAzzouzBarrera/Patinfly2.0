@@ -1,6 +1,15 @@
 package cat.urv.deim.asm.patinfly.views.persistence
 
-/*class DataBaseActivity : AppCompatActivity() {
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
+import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
+import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
+
+class DataBaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_base)
@@ -13,36 +22,33 @@ package cat.urv.deim.asm.patinfly.views.persistence
         // First database
         val db = Room.databaseBuilder(
             applicationContext,
-            AppDataBase::class.java, "database-name"
+            AppDatabase::class.java, "database-name"
         ).build()
 
         // Second database
-        val dbSecondary = AppDataBase.getInstance(this)
+        val dbSecondary = AppDatabase.getInstance(this)
 
-        val userDao: UserDao = db.userDao()
+        val scooterDao: ScooterDao = db.scooterDao()
 
-        //val scooterDao: ScooterDao = db.ScooterDao()
+        //val scooter: List<Scooter> = scooterDao.getAll()
 
-       // val scooter: List<ScooterE> = scooterDao.getAll()
+        val userDatabaseSecondary: ScooterDao = dbSecondary.scooterDao()
 
-        val userDatabaseSecondary: UserDao = dbSecondary.userDao()
-
-        dataBasePrimary(userDao)
+        dataBasePrimary(scooterDao)
         dataBaseSecondary(userDatabaseSecondary, view)
 
     }
 
-    fun dataBasePrimary(userDao: UserDao){
+    fun dataBasePrimary(userDao: ScooterDao){
         DevUtils.deleteFakeData(userDao)
         DevUtils.insertFakeData(userDao)
         DevUtils.plotDBUsers(userDao)
     }
 
-    fun dataBaseSecondary(userDao: UserDao, view: TextView){
-        DevUtils.deleteFakeData(userDao)
-        DevUtils.insertFakeData(userDao)
-        DevUtils.plotDBUsers(userDao)
-        DevUtils.updateView(userDao, view)
+    fun dataBaseSecondary(scooterDao: ScooterDao, view: TextView){
+        DevUtils.deleteFakeData(scooterDao)
+        DevUtils.insertFakeData(scooterDao)
+        DevUtils.plotDBUsers(scooterDao)
+        DevUtils.updateView(scooterDao, view)
     }
 }
-*/

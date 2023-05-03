@@ -7,9 +7,10 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import cat.urv.deim.asm.patinfly.views.persistence.AppDataBase
+import cat.urv.deim.asm.patinfly.views.persistence.AppDatabase
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig
+import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
 
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         // Carregar les dades del scooter
-        //val scooters = ScooterRepository.loadJSONData(assets)
+        val scooters = ScooterRepository.loadJSONData(assets)
         window.setFlags(
             WindowManager.LayoutParams.FLAGS_CHANGED,
             WindowManager.LayoutParams.FLAGS_CHANGED
@@ -38,10 +39,12 @@ class SplashActivity : AppCompatActivity() {
 
     }
     private fun startScootersList() {
-        val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
-        val scooter = ScooterRepository.activeScooters(this, resource)
-        val db: AppDataBase = AppDataBase.getInstance(this)
-        val scooterDao: ScooterDao = db.ScooterDao()
-        ScooterRepository.insertScooters(scooterDao, this, scooter)
+        val resource= AssetsProvider.getJsonDataFromRawAsset(this, "scooter")
+        val scooter = resource?.let { ScooterRepository.activeScootersList(this, it) }
+        val db: AppDatabase = AppDatabase.getInstance(this)
+        val scooterDao: ScooterDao = db.scooterDao()
+        if (scooter != null) {
+            ScooterRepository.insertScooters(scooterDao, this, scooter)
+        }
     }
 }

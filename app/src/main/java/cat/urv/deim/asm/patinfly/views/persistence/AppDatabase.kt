@@ -10,15 +10,15 @@ import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 
 //TODO: add entity Scooter::class
-@Database(entities = [Scooter::class], version = 1)
-abstract class AppDataBase : RoomDatabase() {
-    abstract fun ScooterDao(): ScooterDao
+@Database(entities = [Scooter::class], version = 2)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun scooterDao(): ScooterDao
 
     companion object {
 
-        @Volatile private var INSTANCE: AppDataBase? = null
+        @Volatile private var INSTANCE: AppDatabase? = null
 
-        public fun getInstance(context: Context): AppDataBase =
+        public fun getInstance(context: Context): AppDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
@@ -31,6 +31,9 @@ abstract class AppDataBase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, AppDataBase::class.java, "application_database.db").addMigrations(MIGRATION_1_2).build()
+            Room.databaseBuilder(context.applicationContext,
+                AppDatabase::class.java, "application_database.db")
+                //.addMigrations(MIGRATION_1_2)
+                .build()
     }
 }

@@ -12,7 +12,7 @@ class ScooterDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooter_detail)
 
-        val scooterList = ScooterRepository.activeScootersList(this, "dadescooters.json")
+        val scooterList = ScooterRepository.activeScootersList(this, "scooter.json")
 
         if(scooterList!=null) {
             findViewById<TextView>(R.id.uuid).text = scooterList[0].uuid
@@ -25,8 +25,6 @@ class ScooterDetailActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.state).text = scooterList[7].state
             findViewById<TextView>(R.id.onRent).text = scooterList[8].onRent.toString()
         }
-
-
     }
 }
 

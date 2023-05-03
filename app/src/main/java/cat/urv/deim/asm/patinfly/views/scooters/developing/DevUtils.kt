@@ -10,7 +10,7 @@ import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import java.util.*
 import java.util.concurrent.Executors
 
-/*class DevUtils {
+class DevUtils {
     companion object{
         fun deleteFakeData(scooter: ScooterDao){
             val scooters: Scooter?= null
@@ -23,9 +23,9 @@ import java.util.concurrent.Executors
         }
         fun insertFakeData(userDao: ScooterDao){
             Executors.newSingleThreadExecutor().execute(Runnable {
-                val user= Scooter("546fcg", "Sara", 23.3, 14.3, 100.0, 20.5,"Today", "ACTIVE",false)
+                val scooter: List<Scooter> = LinkedList()
                 try {
-                    userDao.insertAll(user)
+                    userDao.insertAll(scooter)
                 }catch (e: SQLiteConstraintException){
                  //   Log.d(DataBaseActivity::class.simpleName,"Unique value error")
                 }
@@ -65,4 +65,4 @@ import java.util.concurrent.Executors
 
     }
 
-}*/
+}
