@@ -51,19 +51,31 @@ class ScooterRepository {
         fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.deleteAll()
         }
+        fun activeScooters(context: Context, resource: String): Scooters {
+            val scooters: Scooters
+            val jsonResource: String? = getJsonDataFromRawAsset(context, resource)
+            jsonResource.let {
+                scooters = ScooterParser.parseFromJson(jsonResource!!)
+            }
+            return scooters
+        }
 
-        fun insertScooters(context: Context, scooterDao: ScooterDao, scooters:List<Scooter>) = CoroutineScope(Dispatchers.Default).async {
-            //val scooters: MutableList<Scooter> = LinkedList<Scooter>()
-            //scooters.addAll(scooters)
-//            for(scooter in scooters) {
-//                scooterDao.insertAll(scooter)
-//            }
-            try {
-                return@async scooterDao.insertScooterList(scooters)
-            } catch (e: SQLiteConstraintException) {
-                Log.d(ScooterRepository::class.simpleName, "Unique value error")
-                return@async LinkedList<Scooter>()
+        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: Scooters) = CoroutineScope(Dispatchers.Default).async {
+                try {
+                    return@async scooterDao.insertAll(scooters)
+                } catch (e: SQLiteConstraintException) {
+                    Log.d(ScooterRepository::class.simpleName, "Unique value error")
+                    return@async LinkedList<Scooter>()
+                }
             }
         }
+        fun activeScooters(context: Context, resource: String): Scooters {
+            val scooters: Scooters
+            val jsonResource: String? = AssetsProvider.getJsonDataFromRawAsset(context, resource)
+            jsonResource.let {
+                scooters = ScooterParser.parseFromJson(jsonResource!!)
+            }
+            return scooters
+        }
+
     }
-}

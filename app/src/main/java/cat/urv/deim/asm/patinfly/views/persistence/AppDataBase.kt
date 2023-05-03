@@ -13,7 +13,6 @@ import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 @Database(entities = [Scooter::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun ScooterDao(): ScooterDao
-    //abstract fun scooterDao(): ScooterDao
 
     companion object {
 
@@ -32,9 +31,6 @@ abstract class AppDataBase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext,
-                AppDataBase::class.java, "application_database.db")
-                //.addMigrations(MIGRATION_1_2)
-                .build()
+            Room.databaseBuilder(context.applicationContext, AppDataBase::class.java, "application_database.db").addMigrations(MIGRATION_1_2).build()
     }
 }

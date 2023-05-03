@@ -61,8 +61,7 @@ class ScootersListActivity : AppCompatActivity() {
         //val scooters:Scooters  = ScooterRepository.activeScooters()
 
         //Scooters from json file. To access to the file raw/scooters.json:
-        val scooters:Scooters  = ScooterRepository.activeScooters(this,
-            AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE)
+        val scooters=ScooterRepository.activeScootersList(this,"scooter.json")
 
         // Increase performance when the size is static
         binding.scooterRecyclerView.setHasFixedSize(true)
@@ -108,7 +107,8 @@ class ScootersListActivity : AppCompatActivity() {
             //mostrar-les a l'adapter
             val deleteResult: Deferred<Unit> = ScooterRepository.deleteAllScooters(context, scooterDao)
             deleteResult.await()
-            val insertResult: Deferred<Any> = ScooterRepository.insertScooters(context, scooterDao, scooters.scooters)
+            val insertResult: Deferred<Unit> =
+                ScooterRepository.insertScooters(scooterDao, context, scooters) as Deferred<Unit>
             insertResult.await()
             val scootersDeferred: Deferred<List<Scooter>> = ScooterRepository.getAllScooters(context, scooterDao)
             val scooters: List<Scooter> = scootersDeferred.await()

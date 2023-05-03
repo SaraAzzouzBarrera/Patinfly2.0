@@ -13,12 +13,12 @@ interface ScooterDao {
 
 
     @Insert
-    fun insertAll(vararg scooters: Scooter)
+    fun insertAll(vararg scooters: Scooters)
 
     @Delete
     fun deleteAll()
     @Insert
-    suspend fun insertScooterList(users: List<Scooter>)
+    fun insertScooterList(scooters: List<Scooter>)
 
     @Update
     fun update(scooter: Scooter)

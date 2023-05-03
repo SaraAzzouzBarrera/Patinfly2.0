@@ -10,7 +10,7 @@ import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import java.util.*
 import java.util.concurrent.Executors
 
-class DevUtils {
+/*class DevUtils {
     companion object{
         fun deleteFakeData(scooter: ScooterDao){
             val scooters: Scooter?= null
@@ -65,4 +65,4 @@ class DevUtils {
 
     }
 
-}
+}*/
