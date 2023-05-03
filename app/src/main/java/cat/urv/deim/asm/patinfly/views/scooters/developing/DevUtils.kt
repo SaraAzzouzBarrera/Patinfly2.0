@@ -16,7 +16,7 @@ class DevUtils {
             val scooters: Scooter?= null
             Executors.newSingleThreadExecutor().execute(Runnable {
                 if (scooters != null) {
-                    scooter.delete(scooters)
+                    scooter.deleteAll()
                 }
 
             })

@@ -52,10 +52,12 @@ class ScooterRepository {
             return@async scooterDao.deleteAll()
         }
 
-        fun insertScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
-
-            val scooters: MutableList<Scooter> = LinkedList<Scooter>()
-            scooters.addAll(scooters)
+        fun insertScooters(context: Context, scooterDao: ScooterDao, scooters:List<Scooter>) = CoroutineScope(Dispatchers.Default).async {
+            //val scooters: MutableList<Scooter> = LinkedList<Scooter>()
+            //scooters.addAll(scooters)
+//            for(scooter in scooters) {
+//                scooterDao.insertAll(scooter)
+//            }
             try {
                 return@async scooterDao.insertScooterList(scooters)
             } catch (e: SQLiteConstraintException) {

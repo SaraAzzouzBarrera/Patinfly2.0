@@ -35,8 +35,7 @@ class SplashActivity : AppCompatActivity() {
             // Insert data list into DDBB using room
             val db: AppDataBase = AppDataBase.getInstance(this)
             val scooterDao: ScooterDao = db.ScooterDao()
-            val scooterList = ScooterRepository.getAllScooters(this, scooterDao)
-            //listOf(scooterList)
+            ScooterRepository.insertScooters(this, scooterDao, data)
             startActivity(intent)
         }, 2000)
     }
