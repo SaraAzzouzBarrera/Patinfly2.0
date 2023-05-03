@@ -49,7 +49,7 @@ class ScootersListActivity : AppCompatActivity() {
         //databaseCleanInsertAndQueryWithCoroutines(this, scooterDao)
 
         //Actualització de l'adapter del RecyclerView
-        databaseUpdateRecyclerViewWithCoroutines(this, scooterDao, scooterRecyclerViewAdapter)
+        //databaseUpdateRecyclerViewWithCoroutines(this, scooterDao, scooterRecyclerViewAdapter)
     }
 
     private fun databaseGetAllWithCoroutines(context: Context, scooterDao: ScooterDao) {
@@ -75,7 +75,7 @@ class ScootersListActivity : AppCompatActivity() {
         }
     }
 
-    private fun databaseUpdateRecyclerViewWithCoroutines(context: Context, scooterDao: ScooterDao, adapter: ScooterRecyclerViewAdapter){
+    /*private fun databaseUpdateRecyclerViewWithCoroutines(context: Context, scooterDao: ScooterDao, adapter: ScooterRecyclerViewAdapter){
         CoroutineScope(Dispatchers.Main).launch {
             //Esborrem i insertem les dades novament però no es necessari fer-ho
             // si a la nostra base de dades les dades són correctes
@@ -98,7 +98,6 @@ class ScootersListActivity : AppCompatActivity() {
                 Toast.makeText(context, "The number user is: %s".format(scooters.size), Toast.LENGTH_LONG).show()
                 adapter.updateScooters(scooters)
             }
-        }
+        }*/
     }
 
-}

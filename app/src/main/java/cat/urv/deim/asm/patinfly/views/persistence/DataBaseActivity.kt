@@ -41,13 +41,13 @@ class DataBaseActivity : AppCompatActivity() {
 
     fun dataBasePrimary(userDao: ScooterDao){
         DevUtils.deleteFakeData(userDao)
-        DevUtils.insertFakeData(userDao)
+        //DevUtils.insertFakeData(userDao)
         DevUtils.plotDBUsers(userDao)
     }
 
     fun dataBaseSecondary(scooterDao: ScooterDao, view: TextView){
         DevUtils.deleteFakeData(scooterDao)
-        DevUtils.insertFakeData(scooterDao)
+        //DevUtils.insertFakeData(scooterDao)
         DevUtils.plotDBUsers(scooterDao)
         DevUtils.updateView(scooterDao, view)
     }

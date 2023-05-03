@@ -7,6 +7,7 @@ import android.util.Log
 import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
+import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig
 import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -15,7 +16,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.reflect.Type
-import java.util.*
+import java.util.concurrent.Executors
 import kotlin.collections.filter
 
 
@@ -50,24 +51,6 @@ class ScooterRepository {
         fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.deleteAll()
         }
-        fun activeScooters(context: Context, resource: String): List<Scooter> {
-            val scooters: Scooters
-            val jsonResource: String? = getJsonDataFromRawAsset(context, resource)
-            jsonResource.let {
-                scooters = ScooterParser.parseFromJson(jsonResource!!)
-            }
-            return scooters.scooters
-        }
-
-        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: List<Scooter>) = CoroutineScope(Dispatchers.Default).async {
-                try {
-                    return@async scooterDao.insertAll(scooters)
-                } catch (e: SQLiteConstraintException) {
-                    Log.d(ScooterRepository::class.simpleName, "Unique value error")
-                    return@async Unit
-                }
-            }
-        }
         fun activeScooters(context: Context, resource: String): Scooters {
             val scooters: Scooters
             val jsonResource: String? = AssetsProvider.getJsonDataFromRawAsset(context, resource)
@@ -75,6 +58,21 @@ class ScooterRepository {
                 scooters = ScooterParser.parseFromJson(jsonResource!!)
             }
             return scooters
+        }
+
+        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: List<Scooter>){
+                Executors.newSingleThreadExecutor().execute(Runnable {
+                    val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
+                    val scooters: Scooters= activeScooters(context, resource)
+                    try{
+                        scooterDao.insertAll(scooters.scooters.toTypedArray())
+                    }catch(e:SQLiteConstraintException){
+                        Log.d(ScooterRepository::class.simpleName,"Unit value error")
+                    }
+
+                })
+
+            }
         }
 
     }

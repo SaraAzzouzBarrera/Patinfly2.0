@@ -21,7 +21,7 @@ class DevUtils {
 
             })
         }
-        fun insertFakeData(userDao: ScooterDao){
+        /*fun insertFakeData(userDao: ScooterDao){
             Executors.newSingleThreadExecutor().execute(Runnable {
                 val scooter: List<Scooter> = LinkedList()
                 try {
@@ -31,7 +31,7 @@ class DevUtils {
                 }
             })
 
-        }
+        }*/
 
         fun plotDBUsers(scooters: ScooterDao) {
             var scooter: List<Scooter> = LinkedList<Scooter>()

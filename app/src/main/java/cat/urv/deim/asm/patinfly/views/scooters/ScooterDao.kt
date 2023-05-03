@@ -13,7 +13,7 @@ interface ScooterDao {
 
 
     @Insert
-    fun insertAll(vararg scooters: List<Scooter>)
+    fun insertAll(vararg scooters: Array<Scooter>)
 
     @Delete
     fun deleteAll()
