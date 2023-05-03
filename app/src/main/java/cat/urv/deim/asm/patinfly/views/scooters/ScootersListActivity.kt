@@ -1,13 +1,20 @@
 package cat.urv.deim.asm.patinfly.views.scooters
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.persistence.AppDataBase
 import cat.urv.deim.asm.patinfly.views.scooters.adapters.ScooterRecyclerViewAdapter
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
-import java.util.concurrent.Executors
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.util.*
 
 class ScootersListActivity : AppCompatActivity() {
 
@@ -16,63 +23,81 @@ class ScootersListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scooters_list)
-
-
-
-        //val scooterList = ScooterRepository.activeScootersList(this, "scooter.json")
-        val recyclerView = findViewById<RecyclerView>(R.id.scooter_recycler_view)
-        //val scooters = Scooters(scooterList)
-        scootersAdapter = ScooterRecyclerViewAdapter(Scooters())
-        recyclerView.adapter = scootersAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        Executors.newSingleThreadExecutor().execute(Runnable {
-            scooters = ScootersRepository.getAll()
-            scootersAdapter.updateScooters(scooters)
-
-        })
-
-
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
 
+        val recyclerView: RecyclerView = this.findViewById(R.id.scooter_recycler_view)
+        val scooters: List<Scooter> = LinkedList()
+        val scooterRecyclerViewAdapter = ScooterRecyclerViewAdapter(scooters)
+        val linearLayoutManager = LinearLayoutManager(applicationContext)
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.adapter = scooterRecyclerViewAdapter
+
+        recyclerView.setHasFixedSize(true)
+
+        val db: AppDataBase = AppDataBase.getInstance(this)
+
+        val scooterDao: ScooterDao = db.ScooterDao()
+
+        //Consulta simple
+        databaseGetAllWithCoroutines(this, scooterDao)
+
+        //Operacions consecutives (wait)
+        //databaseCleanInsertAndQueryWithCoroutines(this, userDao)
+
+        //Actualització de l'adapter del RecyclerView
+        databaseUpdateRecyclerViewWithCoroutines(this, scooterDao, scooterRecyclerViewAdapter)
     }
-    /* private lateinit var binding: ActivityScootersListBinding
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //MVC
-        //setContentView(R.layout.activity_main)
-
-        //Binding MVVM o MVP
-        binding = ActivityScootersListBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
+    private fun databaseGetAllWithCoroutines(context: Context, scooterDao: ScooterDao) {
+        CoroutineScope(Dispatchers.Default).launch {
+            val scooters: Deferred<List<Scooter>> =
+                ScooterRepository.getAllScooters(context, scooterDao)
+            for (scooter in scooters.await()) {
+                Log.d(
+                    "CoroutineScope",
+                    "Scooter: (%d) %s %s".format(
+                        scooter.uuid,
+                        scooter.name,
+                        scooter.longitude,
+                        scooter.latitude,
+                        scooter.batteryLevel,
+                        scooter.kmUse,
+                        scooter.dateLastMaintenance,
+                        scooter.state,
+                        scooter.onRent
+                    )
+                )
+            }
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun databaseUpdateRecyclerViewWithCoroutines(context: Context, scooterDao: ScooterDao, adapter: ScooterRecyclerViewAdapter){
+        CoroutineScope(Dispatchers.Main).launch {
+            //Esborrem i insertem les dades novament però no es necessari fer-ho
+            // si a la nostra base de dades les dades són correctes
 
-        //val scooters:Scooters  = ScooterRepository.activeScooters()
+            //A l'exemple esborrem les dades per assegurar-nos que les dades estan abans de
+            //mostrar-les a l'adapter
+            val deleteResult: Deferred<Unit> = ScooterRepository.deleteAllScooters(context, scooterDao)
+            deleteResult.await()
+            val insertResult: Deferred<Any> = ScooterRepository.insertScooters(context, scooterDao)
+            insertResult.await()
+            val scootersDeferred: Deferred<List<Scooter>> = ScooterRepository.getAllScooters(context, scooterDao)
+            val scooters: List<Scooter> = scootersDeferred.await()
+            if (scooters.isEmpty()){
+                Log.d(
+                    "CoroutineScope",
+                    "databaseUpdateRecyclerViewWithCoroutines: La base de dades està buida"
+                )
+            }
+            else{
+                Toast.makeText(context, "The number user is: %s".format(scooters.size), Toast.LENGTH_LONG).show()
+                adapter.updateScooters(scooters)
+            }
+        }
+    }
 
-        //Scooters from json file. To access to the file raw/scooters.json:
-        val scooters:Scooters  = ScooterRepository.activeScooters(this,
-            AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE)
-
-        // Increase performance when the size is static
-        binding.scooterRecyclerView.setHasFixedSize(true)
-
-
-        // Our RecyclerView is using the linear layout manager
-        val layoutManager = LinearLayoutManager(applicationContext)
-        binding.scooterRecyclerView.setLayoutManager(layoutManager)
-
-        val adapter:ScooterRecyclerViewAdapter = ScooterRecyclerViewAdapter(scooters)
-        binding.scooterRecyclerView.adapter = adapter
-    }*/
 }
-

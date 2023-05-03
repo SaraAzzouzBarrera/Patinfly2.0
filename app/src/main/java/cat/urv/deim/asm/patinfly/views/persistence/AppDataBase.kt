@@ -6,11 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
+import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 
 //TODO: add entity Scooter::class
-/*@Database(entities = [UserE::class], version = 1)
+@Database(entities = [Scooter::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
-    abstract fun userDao(): UserDao
+    abstract fun ScooterDao(): ScooterDao
     //abstract fun scooterDao(): ScooterDao
 
     companion object {
@@ -35,4 +37,4 @@ abstract class AppDataBase : RoomDatabase() {
                 //.addMigrations(MIGRATION_1_2)
                 .build()
     }
-}*/
+}

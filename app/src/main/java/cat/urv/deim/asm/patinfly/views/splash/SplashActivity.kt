@@ -7,8 +7,12 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
+import cat.urv.deim.asm.patinfly.views.persistence.AppDataBase
+import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
+import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
+import cat.urv.deim.asm.patinfly.views.user.UserRepository
 
 //Sara Azzouz Barrera i Clàudia Tombas Coll, grup ASM02.
 class SplashActivity : AppCompatActivity() {
@@ -28,9 +32,11 @@ class SplashActivity : AppCompatActivity() {
         }, 2000)
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
-
             // Insert data list into DDBB using room
-            ScooterRepository.insert(data)
+            val db: AppDataBase = AppDataBase.getInstance(this)
+            val scooterDao: ScooterDao = db.ScooterDao()
+            val scooterList = ScooterRepository.getAllScooters(this, scooterDao)
+            //listOf(scooterList)
             startActivity(intent)
         }, 2000)
     }

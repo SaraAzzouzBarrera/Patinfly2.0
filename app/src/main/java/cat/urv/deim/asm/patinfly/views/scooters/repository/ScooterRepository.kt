@@ -2,19 +2,20 @@ package cat.urv.deim.asm.patinfly.views.scooters.repository
 
 import android.content.Context
 import android.content.res.AssetManager
+import android.database.sqlite.SQLiteConstraintException
+import android.util.Log
 import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
+import kotlinx.coroutines.*
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.reflect.Type
+import java.util.*
 import kotlin.collections.filter
 
 
@@ -44,17 +45,22 @@ class ScooterRepository {
             val scooterList: Scooters = gson.fromJson(jsonString, Scooters::class.java)
             return scooterList.scooters.filter { it.state == "ACTIVE" && it.batteryLevel > 0.0 && !it.onRent }
         }
-        fun getAllUsers(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
+        fun getAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.getAll()
         }
-        fun insert(scooters: Scooters){
-            //get daoAccess
+        fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
+            return@async scooterDao.deleteAll()
+        }
 
-            //insert list
-            ScooterDao.insertAll(scooters.scooters)
-            // or insert only one scooter each time
-            for(scooter in scooters.scooters){
-                scooterDato.insert(scooter)
+        fun insertScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
+
+            val scooters: MutableList<Scooter> = LinkedList<Scooter>()
+            scooters.addAll(scooters)
+            try {
+                return@async scooterDao.insertScooterList(scooters)
+            } catch (e: SQLiteConstraintException) {
+                Log.d(ScooterRepository::class.simpleName, "Unique value error")
+                return@async LinkedList<Scooter>()
             }
         }
     }

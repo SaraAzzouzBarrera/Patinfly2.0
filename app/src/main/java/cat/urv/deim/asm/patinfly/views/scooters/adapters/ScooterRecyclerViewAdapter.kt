@@ -7,9 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 
-class ScooterRecyclerViewAdapter(private var scooters: Scooters) :
+class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) :
     RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
 
     /**
@@ -27,7 +28,7 @@ class ScooterRecyclerViewAdapter(private var scooters: Scooters) :
         }
     }
 
-    fun updateScooters(scooters: Scooters){
+    fun updateScooters(scooters: List<Scooter>) {
         this.scooters = scooters
     }
     // Create new views (invoked by the layout manager)
@@ -44,7 +45,7 @@ class ScooterRecyclerViewAdapter(private var scooters: Scooters) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = scooters.scooters.get(position).uuid
+        viewHolder.textView.text = scooters.get(position).uuid
         viewHolder.root.setOnClickListener {
             Toast.makeText(viewHolder.root.context,
                 "Row selected %d".format(position),
@@ -53,6 +54,13 @@ class ScooterRecyclerViewAdapter(private var scooters: Scooters) :
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = scooters.scooters.size
+    override fun getItemCount() = scooters.size
+
+    /*@SuppressLint("NotifyDataSetChanged")
+    fun updateUsers(scooters: Scooters) {
+        this.scooters = scooters
+        Log.d("UserRecyclerViewAdapter", "number of scooters %s".format(this.scooters.scooters))
+        this.notifyDataSetChanged()
+    }*/
 
 }
