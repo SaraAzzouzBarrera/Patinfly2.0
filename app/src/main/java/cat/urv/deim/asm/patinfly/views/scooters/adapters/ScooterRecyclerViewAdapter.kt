@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 
-class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
+class ScooterRecyclerViewAdapter(private var scooters: Scooters) :
     RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
 
     /**
@@ -27,6 +27,9 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         }
     }
 
+    fun updateScooters(scooters: Scooters){
+        this.scooters = scooters
+    }
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item

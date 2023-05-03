@@ -11,6 +11,7 @@ interface ScooterDao {
     @androidx.room.Query("SELECT * FROM scooters")
     fun getAll(): List<Scooter>
 
+
     @Insert
     fun insertAll(vararg scooters: Scooter)
 

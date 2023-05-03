@@ -28,7 +28,9 @@ class SplashActivity : AppCompatActivity() {
         }, 2000)
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
-            listOf(data)
+
+            // Insert data list into DDBB using room
+            ScooterRepository.insert(data)
             startActivity(intent)
         }, 2000)
     }
