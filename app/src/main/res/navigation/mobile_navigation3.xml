@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation3"
+    app:startDestination="@+id/nav_Scooter_Rental">
+
+    <fragment
+        android:id="@+id/nav_Scooter_Rental"
+        android:name="cat.urv.deim.asm.patinfly.views.userinterface.LlogarScooters"
+        android:label="SCOOTER RENTAL"
+        tools:layout="@layout/scooter_llogar" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="cat.urv.deim.asm.patinfly.views.userinterface.profile.ProfileActivity"
+        android:label="PROFILE"
+        tools:layout="@layout/activity_profile" />
+    <fragment
+        android:id="@+id/nav_rented_scooters"
+        android:name="cat.urv.deim.asm.patinfly.views.userinterface.ScootersLlogats"
+        android:label="RENTED SCOOTERS"
+        tools:layout="@layout/scooters_llogats" />
+
+</navigation>

@@ -8,7 +8,7 @@ import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig
-import cat.urv.deim.asm.patinfly.views.splash.SplashActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.splash.SplashActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
@@ -69,13 +69,16 @@ class ScooterRepository {
                 val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
                 val scooters: Scooters= activeScooters(context, resource)
                 try{
-                    scooterDao.insertAll(scooters.scooters.toTypedArray())
+                    scooterDao.insertAll(scooters.scooters.toTypedArray().toList())
                 }catch(e:SQLiteConstraintException){
                     Log.d(ScooterRepository::class.simpleName,"Unit value error")
                 }
 
             })
 
+        }
+        fun getScootersLlogats(context: Context, scooterDao: ScooterDao, rent:String) = CoroutineScope(Dispatchers.Default).async {
+            return@async scooterDao.getRent(rent)
         }
     }
 

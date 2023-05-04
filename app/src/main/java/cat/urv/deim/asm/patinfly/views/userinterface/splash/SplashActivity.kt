@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.splash
+package cat.urv.deim.asm.patinfly.views.userinterface.splash
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,7 +15,7 @@ import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
 import cat.urv.deim.asm.patinfly.views.scooters.persistence.AppDatabase
 import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
-import cat.urv.deim.asm.patinfly.views.tutorial.TutorialActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.tutorial.TutorialActivity
 
 //Sara Azzouz Barrera i Clàudia Tombas Coll, grup ASM02.
 class SplashActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.signup
+package cat.urv.deim.asm.patinfly.views.userinterface.signup
 
 import android.content.Intent
 

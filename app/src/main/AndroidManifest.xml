@@ -15,7 +15,7 @@
             android:name=".NavigationDrawerActivity"
             android:exported="false" />
         <activity
-            android:name=".views.splash.SplashActivity"
+            android:name=".views.userinterface.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,19 +24,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.tutorial.TutorialActivity"
+            android:name=".views.userinterface.tutorial.TutorialActivity"
             android:exported="true" />
         <activity
-            android:name=".views.login.LoginActivity"
+            android:name=".views.userinterface.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".views.signup.SignupActivity"
+            android:name=".views.userinterface.signup.SignupActivity"
             android:exported="true" />
         <activity
-            android:name=".views.profile.ProfileActivity"
+            android:name=".views.userinterface.profile.ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".views.profile.EditProfileActivity"
+            android:name=".views.userinterface.profile.EditProfileActivity"
             android:exported="true" />
         <activity
             android:name=".views.scooters.ScootersListActivity"

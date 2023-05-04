@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.tutorial
+package cat.urv.deim.asm.patinfly.views.userinterface.tutorial
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.login.LoginActivity
-import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.profile.ProfileActivity
 
 class ViewPagerAdapter (private var title: List<String>, private var details: List<String>, private var images: List<Int>) : RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder> () {
     inner class Pager2ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,12 +34,12 @@ class ViewPagerAdapter (private var title: List<String>, private var details: Li
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewPagerAdapter.Pager2ViewHolder {
+    ): Pager2ViewHolder {
         return Pager2ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false)
         )
     }
-    override fun onBindViewHolder(holder: ViewPagerAdapter.Pager2ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Pager2ViewHolder, position: Int) {
         holder.itemTitle.text = title[position]
         holder.itemDetails.text = details[position]
         holder.itemImage.setImageResource(images[position])

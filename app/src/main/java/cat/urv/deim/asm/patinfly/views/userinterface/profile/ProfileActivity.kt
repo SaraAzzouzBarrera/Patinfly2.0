@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.profile
+package cat.urv.deim.asm.patinfly.views.userinterface.profile
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.login.LoginActivity
 import cat.urv.deim.asm.patinfly.views.scooters.ScootersListActivity
 import cat.urv.deim.asm.patinfly.views.user.User
 import cat.urv.deim.asm.patinfly.views.user.UserRepository

@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.login
+package cat.urv.deim.asm.patinfly.views.userinterface.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
-import cat.urv.deim.asm.patinfly.views.signup.SignupActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.signup.SignupActivity
 import cat.urv.deim.asm.patinfly.views.user.UserRepository
 
 class LoginActivity : AppCompatActivity(), LoginView {

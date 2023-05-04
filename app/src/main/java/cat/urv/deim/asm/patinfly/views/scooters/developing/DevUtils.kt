@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
+import cat.urv.deim.asm.patinfly.views.userinterface.NavigationDrawerActivity
 import java.util.*
 import java.util.concurrent.Executors
 

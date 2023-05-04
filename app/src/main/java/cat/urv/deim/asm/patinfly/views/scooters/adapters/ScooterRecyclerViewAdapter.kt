@@ -65,5 +65,8 @@ class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) : Recycler
         Log.d("UserRecyclerViewAdapter", "number of scooters %s".format(this.scooters))
         this.notifyDataSetChanged()
     }
-
+    fun updateScooter(scooters: List<Scooter>) {
+        this.scooters = scooters
+        this.notifyDataSetChanged()
+    }
 }

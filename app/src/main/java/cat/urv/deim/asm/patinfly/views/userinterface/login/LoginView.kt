@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.login
+package cat.urv.deim.asm.patinfly.views.userinterface.login
 
 
 interface LoginView {

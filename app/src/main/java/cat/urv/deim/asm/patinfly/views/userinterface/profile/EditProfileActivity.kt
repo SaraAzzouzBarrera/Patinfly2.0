@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.profile
+package cat.urv.deim.asm.patinfly.views.userinterface.profile
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

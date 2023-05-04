@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.tutorial
+package cat.urv.deim.asm.patinfly.views.userinterface.tutorial
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.login.LoginActivity
-import cat.urv.deim.asm.patinfly.views.profile.ProfileActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.login.LoginActivity
+import cat.urv.deim.asm.patinfly.views.userinterface.profile.ProfileActivity
 import me.relex.circleindicator.CircleIndicator3
 
 

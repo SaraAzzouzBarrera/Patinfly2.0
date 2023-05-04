@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.login
+package cat.urv.deim.asm.patinfly.views.userinterface.login
 import android.content.Context
 import android.widget.Button
 import android.widget.EditText

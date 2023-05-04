@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.login
+package cat.urv.deim.asm.patinfly.views.userinterface.login
 
 import cat.urv.deim.asm.patinfly.extensions.postDelayed
 

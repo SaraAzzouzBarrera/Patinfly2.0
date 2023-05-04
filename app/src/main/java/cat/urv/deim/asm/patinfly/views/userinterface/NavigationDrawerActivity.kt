@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.scooters.developing
+package cat.urv.deim.asm.patinfly.views.userinterface
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,7 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.R.id.nav_host_fragment_content_navegacio
 import cat.urv.deim.asm.patinfly.databinding.ActivityNavigationDrawerBinding
-import androidx.appcompat.widget.Toolbar
+
 
 
 
