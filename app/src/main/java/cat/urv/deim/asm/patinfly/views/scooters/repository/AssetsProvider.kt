@@ -1,9 +1,11 @@
 package cat.urv.deim.asm.patinfly.views.scooters.repository
+import android.annotation.SuppressLint
 import android.content.Context
 import java.io.IOException
 
 class AssetsProvider {
     companion object{
+        @SuppressLint("DiscouragedApi")
         fun getJsonDataFromRawAsset(context: Context, fileName: String): String? {
             val jsonString: String
             try {

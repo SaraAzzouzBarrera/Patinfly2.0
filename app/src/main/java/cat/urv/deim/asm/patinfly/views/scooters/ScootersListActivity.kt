@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cat.urv.deim.asm.patinfly.R
-import cat.urv.deim.asm.patinfly.views.persistence.AppDatabase
+import cat.urv.deim.asm.patinfly.views.scooters.persistence.AppDatabase
 import cat.urv.deim.asm.patinfly.views.scooters.adapters.ScooterRecyclerViewAdapter
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
 import kotlinx.coroutines.CoroutineScope

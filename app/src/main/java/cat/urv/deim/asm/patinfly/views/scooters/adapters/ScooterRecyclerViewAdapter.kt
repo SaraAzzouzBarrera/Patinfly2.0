@@ -1,5 +1,7 @@
 package cat.urv.deim.asm.patinfly.views.scooters.adapters
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,10 +58,10 @@ class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) :
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = scooters.size
 
-    /*@SuppressLint("NotifyDataSetChanged")
-    fun updateUsers(scooters: Scooters) {
+   /* @SuppressLint("NotifyDataSetChanged")
+    fun updateScooters(scooters: Scooters) {
         this.scooters = scooters
-        Log.d("UserRecyclerViewAdapter", "number of scooters %s".format(this.scooters.scooters))
+        Log.d("UserRecyclerViewAdapter", "number of scooters %s".format(this.scooters))
         this.notifyDataSetChanged()
     }*/
 

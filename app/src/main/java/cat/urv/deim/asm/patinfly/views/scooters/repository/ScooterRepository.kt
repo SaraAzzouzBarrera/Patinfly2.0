@@ -8,7 +8,6 @@ import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig
-import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
@@ -53,14 +52,12 @@ class ScooterRepository {
         }
         fun activeScooters(context: Context, resource: String): Scooters {
             val scooters: Scooters
-            val jsonResource: String? = AssetsProvider.getJsonDataFromRawAsset(context, resource)
-            jsonResource.let {
-                scooters = ScooterParser.parseFromJson(jsonResource!!)
+            resource.let {
+                scooters = ScooterParser.parseFromJson(resource!!)
             }
             return scooters
         }
-
-        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: List<Scooter>){
+        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: Scooters?){
                 Executors.newSingleThreadExecutor().execute(Runnable {
                     val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
                     val scooters: Scooters= activeScooters(context, resource)

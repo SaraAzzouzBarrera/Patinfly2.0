@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.persistence
+package cat.urv.deim.asm.patinfly.views.scooters.persistence
 
 import android.os.Bundle
 import android.widget.TextView
@@ -9,6 +9,8 @@ import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
 
+
+/*
 class DataBaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,4 +53,4 @@ class DataBaseActivity : AppCompatActivity() {
         DevUtils.plotDBUsers(scooterDao)
         DevUtils.updateView(scooterDao, view)
     }
-}
+}*/

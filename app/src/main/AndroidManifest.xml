@@ -37,6 +37,9 @@
         <activity
             android:name=".views.scooters.ScootersListActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.scooters.persistence.DataBaseActivity"
+            android:exported="true" />
 
     </application>
 
