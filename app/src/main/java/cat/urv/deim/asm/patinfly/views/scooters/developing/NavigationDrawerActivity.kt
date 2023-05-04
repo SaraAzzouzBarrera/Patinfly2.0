@@ -12,26 +12,34 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.R.id.nav_host_fragment_content_navegacio
+import cat.urv.deim.asm.patinfly.databinding.ActivityNavigationDrawerBinding
+import androidx.appcompat.widget.Toolbar
+
 
 
 class NavigationDrawerActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityNavigationDrawer2Binding
+    private lateinit var binding: ActivityNavigationDrawerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityNavigationDrawer2Binding.inflate(layoutInflater)
+        binding = ActivityNavigationDrawerBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarNavigationDrawer2.toolbar)
 
+
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(nav_host_fragment_content_navegacio)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_navegacio) as NavHostFragment
+        val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(

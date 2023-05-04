@@ -11,19 +11,15 @@ import java.util.concurrent.Executors
 class DevUtils {
     companion object{
 
-        fun insertScooterData(scooterDao: ScooterDao, scooter: Scooter){
+        fun insertScooterData(scooterDao: ScooterDao, scooter: Scooter) {
             Executors.newSingleThreadExecutor().execute(Runnable {
-                var scooter: Scooter = scooter
                 try {
-                    scooterDao.insertAll(scooter)
-                }catch (e: SQLiteConstraintException){
-                    Log.d(NavigationDrawerActivity::class.simpleName,"Unique value error")
+                    scooterDao.insertAll(listOf(scooter))
+                } catch (e: SQLiteConstraintException) {
+                    Log.d(NavigationDrawerActivity::class.simpleName, "Unique value error")
                 }
             })
-
         }
-
-
 
     }
 

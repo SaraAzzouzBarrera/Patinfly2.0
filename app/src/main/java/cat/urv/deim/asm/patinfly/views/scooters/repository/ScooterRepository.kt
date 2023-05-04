@@ -65,18 +65,18 @@ class ScooterRepository {
             return scooters
         }
         fun insertScooters(scooterDao: ScooterDao, context: SplashActivity, scooters: Scooters?){
-                Executors.newSingleThreadExecutor().execute(Runnable {
-                    val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
-                    val scooters: Scooters= activeScooters(context, resource)
-                    try{
-                        scooterDao.insertAll(scooters.scooters.toTypedArray())
-                    }catch(e:SQLiteConstraintException){
-                        Log.d(ScooterRepository::class.simpleName,"Unit value error")
-                    }
+            Executors.newSingleThreadExecutor().execute(Runnable {
+                val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
+                val scooters: Scooters= activeScooters(context, resource)
+                try{
+                    scooterDao.insertAll(scooters.scooters.toTypedArray())
+                }catch(e:SQLiteConstraintException){
+                    Log.d(ScooterRepository::class.simpleName,"Unit value error")
+                }
 
-                })
+            })
 
-            }
         }
-
     }
+
+}

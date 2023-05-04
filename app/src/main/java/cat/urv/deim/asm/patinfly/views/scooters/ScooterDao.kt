@@ -12,7 +12,7 @@ interface ScooterDao {
     fun getAll(): List<Scooter>
 
     @Insert
-    fun insertAll(scooters: Scooter)
+    fun insertAll(scooters: List<Scooter>)
 
 
     @Delete
