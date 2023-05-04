@@ -12,8 +12,7 @@ import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 
-class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) :
-    RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
+class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) : RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>()  {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -30,8 +29,10 @@ class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) :
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateScooters(scooters: List<Scooter>) {
         this.scooters = scooters
+        notifyDataSetChanged()
     }
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -58,11 +59,11 @@ class ScooterRecyclerViewAdapter(private var scooters: List<Scooter>) :
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = scooters.size
 
-   /* @SuppressLint("NotifyDataSetChanged")
+   @SuppressLint("NotifyDataSetChanged")
     fun updateScooters(scooters: Scooters) {
-        this.scooters = scooters
+        this.scooters = scooters.scooters
         Log.d("UserRecyclerViewAdapter", "number of scooters %s".format(this.scooters))
         this.notifyDataSetChanged()
-    }*/
+    }
 
 }
