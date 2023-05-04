@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.scooters.persistence
+//package cat.urv.deim.asm.patinfly.views.scooters.persistence
 
 import android.os.Bundle
 import android.widget.TextView
@@ -7,7 +7,7 @@ import androidx.room.Room
 import cat.urv.deim.asm.patinfly.R
 import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
-import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
+
 
 
 /*

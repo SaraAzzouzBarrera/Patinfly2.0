@@ -7,10 +7,8 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import android.widget.TextView
 import androidx.room.Room
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
-import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
 import cat.urv.deim.asm.patinfly.views.scooters.persistence.AppDatabase
 import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
@@ -28,44 +26,21 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
             startActivity(intent)
-            finish()
         }, 2000)
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
             // Insert list into DDBB using room
-            startScootersList()
+            val resource: String?= AssetsProvider.getJsonDataFromRawAsset(this, "scooter")
+            val scooters= resource?.let { ScooterRepository.activeScooters(this, it) }
+            val db = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "database-name"
+            ).build()
+            val scooterDao: ScooterDao= db.scooterDao()
+            ScooterRepository.insertScooters(scooterDao, this, scooters)
             startActivity(intent)
         }, 2000)
 
     }
-    private fun startScootersList() {
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-name"
-        ).build()
 
-        // Second database
-        val dbSecondary = AppDatabase.getInstance(this)
-
-        val scooterDao: ScooterDao = db.scooterDao()
-        val scooterDatabaseSecondary: ScooterDao = dbSecondary.scooterDao()
-
-        databasePrimary(scooterDao)
-
-
-
-        //databaseSecondary(scooterDatabaseSecondary, view)
-    }
-}
-fun databasePrimary(scooterDao: ScooterDao){
-    DevUtils.deleteFakeData(scooterDao)
-    DevUtils.insertFakeData(scooterDao)
-    DevUtils.plotDBUsers(scooterDao)
-}
-
-fun databaseSecondary(scooterDao: ScooterDao, view: TextView){
-    DevUtils.deleteFakeData(scooterDao)
-    DevUtils.insertFakeData(scooterDao)
-    DevUtils.plotDBUsers(scooterDao)
-    DevUtils.updateView(scooterDao, view)
 }

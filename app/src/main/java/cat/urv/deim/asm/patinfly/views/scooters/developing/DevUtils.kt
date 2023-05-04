@@ -1,4 +1,4 @@
-package cat.urv.deim.asm.patinfly.views.scooters.developing
+/*package cat.urv.deim.asm.patinfly.views.scooters.developing
 
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
@@ -65,4 +65,5 @@ class DevUtils {
 
     }
 
-}
+}*/
+

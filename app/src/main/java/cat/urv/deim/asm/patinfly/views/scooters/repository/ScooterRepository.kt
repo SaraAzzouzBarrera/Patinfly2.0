@@ -8,6 +8,7 @@ import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
 import cat.urv.deim.asm.patinfly.views.scooters.Scooters
 import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig
+import cat.urv.deim.asm.patinfly.views.splash.SplashActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
@@ -47,9 +48,9 @@ class ScooterRepository {
         fun getAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.getAll()
         }
-        fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
+        /*fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.deleteAll()
-        }
+        }*/
         fun activeScooters(context: Context, resource: String): Scooters {
             val scooters: Scooters
             resource.let {
@@ -57,7 +58,7 @@ class ScooterRepository {
             }
             return scooters
         }
-        fun insertScooters(scooterDao: ScooterDao, context: Context, scooters: Scooters?){
+        fun insertScooters(scooterDao: ScooterDao, context: SplashActivity, scooters: Scooters?){
                 Executors.newSingleThreadExecutor().execute(Runnable {
                     val resource: String= AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
                     val scooters: Scooters= activeScooters(context, resource)
