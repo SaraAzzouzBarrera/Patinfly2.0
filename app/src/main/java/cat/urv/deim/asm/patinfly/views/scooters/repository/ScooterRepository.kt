@@ -51,6 +51,12 @@ class ScooterRepository {
         /*fun deleteAllScooters(context: Context, scooterDao: ScooterDao) = CoroutineScope(Dispatchers.Default).async {
             return@async scooterDao.deleteAll()
         }*/
+
+
+        fun activeScooterList(context: Context, resource: String): List<Scooter> {
+            val scooters: Scooters = ScooterRepository.activeScooters(context, resource)
+            return scooters.scooters
+        }
         fun activeScooters(context: Context, resource: String): Scooters {
             val scooters: Scooters
             resource.let {

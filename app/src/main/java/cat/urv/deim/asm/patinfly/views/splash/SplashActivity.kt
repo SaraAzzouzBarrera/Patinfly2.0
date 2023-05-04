@@ -8,7 +8,10 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.room.Room
+import cat.urv.deim.asm.patinfly.views.scooters.Scooter
 import cat.urv.deim.asm.patinfly.views.scooters.ScooterDao
+import cat.urv.deim.asm.patinfly.views.scooters.base.AppConfig.Companion.DEFAULT_SCOOTER_RAW_JSON_FILE
+import cat.urv.deim.asm.patinfly.views.scooters.developing.DevUtils
 import cat.urv.deim.asm.patinfly.views.scooters.persistence.AppDatabase
 import cat.urv.deim.asm.patinfly.views.scooters.repository.AssetsProvider
 import cat.urv.deim.asm.patinfly.views.scooters.repository.ScooterRepository
@@ -30,14 +33,12 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, TutorialActivity::class.java)
             // Insert list into DDBB using room
-            val resource: String?= AssetsProvider.getJsonDataFromRawAsset(this, "scooter")
-            val scooters= resource?.let { ScooterRepository.activeScooters(this, it) }
-            val db = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "database-name"
-            ).build()
-            val scooterDao: ScooterDao= db.scooterDao()
-            ScooterRepository.insertScooters(scooterDao, this, scooters)
+            val scooters: List<Scooter> = ScooterRepository.activeScooterList(this,DEFAULT_SCOOTER_RAW_JSON_FILE)
+            val db = AppDatabase.getInstance(this)
+            val scooterDao: ScooterDao = db.scooterDao()
+            for (scooter in scooters) {
+                DevUtils.insertScooterData(scooterDao,scooter)
+            }
             startActivity(intent)
         }, 2000)
 
